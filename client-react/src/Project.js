@@ -9,7 +9,7 @@ class Project extends React.Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:3000/projects")
+      .get("http://localhost:8080/projects")
       .then(response => this.setState({ projects: response.data }));
   }
 

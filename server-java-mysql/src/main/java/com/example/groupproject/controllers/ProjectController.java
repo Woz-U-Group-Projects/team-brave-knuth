@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/projects")
-@CrossOrigin(origins = "http://localhost:4200,http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ProjectController {
 
   @Autowired
@@ -26,6 +26,12 @@ public class ProjectController {
 
   @GetMapping()
   public List<Project> getProjects() {
+    if (projectRepository.findAll().size() == 0) {
+      Project seedProject = new Project();
+      seedProject.setName("Facebook");
+      seedProject.setCreatedBy("Zuckerberg");
+      projectRepository.save(seedProject);
+    }
     return projectRepository.findAll();
   }
 
