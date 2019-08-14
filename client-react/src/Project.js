@@ -16,11 +16,8 @@ class Project extends React.Component {
   render() {
     return (
       <div>
-        {this.state.projects.map(p => (
-          <div key={p.id}>
-            {p.id} :  {p.createdBy}: {p.name} : {p.hobby} : {p.hobbyRate}
-          </div>
-        ))}
+        
+    
       </div>
     );
   }
