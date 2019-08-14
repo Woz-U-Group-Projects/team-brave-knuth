@@ -1,0 +1,45 @@
+.header {
+    height: 100px;
+}
+
+.brand {
+    overflow-x: hidden;
+    min-width: 300px;
+    text-align: center;
+    width: 100%;
+}
+
+.brand-icon {
+    color: whitesmoke;
+    vertical-align: middle;
+}
+
+.brand-text {
+    color: whitesmoke;
+    font-size: 2rem;
+    margin-left: 20px;
+    vertical-align: middle;
+}
+
+.header .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header .container .header-navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.header .container .header-navigation .header-navigation-item {
+    padding-right: 20px;
+}
+
+.header a {
+    color: whitesmoke;
+    text-decoration: underline;
+}
