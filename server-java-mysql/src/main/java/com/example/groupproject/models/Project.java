@@ -13,8 +13,10 @@ public class Project {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-  private String name;
   private String createdBy;
+  private String name;
+  private String hobby;
+  private String hobbyRate;
 
   public Long getId() {
     return this.id;
@@ -22,6 +24,14 @@ public class Project {
 
   public void setId(Long id) {
     this.id = id;
+  }
+
+  public String getCreatedBy() {
+    return this.createdBy;
+  }
+
+  public void setCreatedBy(String createdBy) {
+    this.createdBy = createdBy;
   }
 
   public String getName() {
@@ -32,12 +42,19 @@ public class Project {
     this.name = name;
   }
 
-  public String getCreatedBy() {
-    return this.createdBy;
+  public String getHobby() {
+    return this.hobby;
   }
 
-  public void setCreatedBy(String createdBy) {
-    this.createdBy = createdBy;
+  public void setHobby(String hobby) {
+    this.hobby = hobby;
+  }
+  public String getHobbyRate() {
+    return this.hobbyRate;
+  }
+
+  public void setHobbyRate(String hobbyRate) {
+    this.hobbyRate = hobbyRate;
   }
 
 }

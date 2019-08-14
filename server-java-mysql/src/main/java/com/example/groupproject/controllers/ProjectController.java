@@ -28,8 +28,10 @@ public class ProjectController {
   public List<Project> getProjects() {
     if (projectRepository.findAll().size() == 0) {
       Project seedProject = new Project();
-      seedProject.setName("Facebook");
-      seedProject.setCreatedBy("Zuckerberg");
+      seedProject.setCreatedBy("User");
+      seedProject.setName("Sam's Hobby");
+      seedProject.setHobby("Fishing");
+      seedProject.setHobbyRate("5/5");
       projectRepository.save(seedProject);
     }
     return projectRepository.findAll();
@@ -49,8 +51,10 @@ public class ProjectController {
   public Project updateProject(@PathVariable Long id, @RequestBody Project project) {
     Project foundProject = projectRepository.findById(id).orElse(null);
     if (foundProject != null) {
-      foundProject.setName(project.getName());
       foundProject.setCreatedBy(project.getCreatedBy());
+      foundProject.setName(project.getName());
+      foundProject.setHobby(project.getHobby());
+      foundProject.setHobbyRate(project.getHobbyRate());
       projectRepository.save(foundProject);
       return foundProject;
     }
