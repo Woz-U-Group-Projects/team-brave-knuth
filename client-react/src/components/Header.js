@@ -3,11 +3,14 @@ import React from 'react';
 const Header = ({ title }) => (
     <div>
     <a href="/">Home</a>
+    <hr/>
     <a href="/about">About the Team</a>
-    <a href="/profile">view profile</a>
+    <hr/>
+    <a href="/profile">Profile</a>
+    <hr/>
     <a href="/hobbylist">List of Hobbies</a>
-    <a href="/addahobby">Add a Hobby</a>
-    <a href="/hobbychats">Hobby Chatroom</a>
+    <hr/>
+    <a href="/hobbychat">Hobby Chatroom</a>
     <h1>{title}</h1>
     </div>
 );

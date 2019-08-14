@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../components/Header';
 
-
-const About = () => {};
+const About = () => <Header title="About the Team" />;
 
 export default About;

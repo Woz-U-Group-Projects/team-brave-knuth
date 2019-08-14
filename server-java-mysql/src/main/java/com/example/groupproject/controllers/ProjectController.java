@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/projects")
+@RequestMapping("/hobbylist")
 @CrossOrigin(origins = "http://localhost:3000")
 public class ProjectController {
 
