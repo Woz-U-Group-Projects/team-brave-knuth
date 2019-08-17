@@ -13,7 +13,7 @@ class Profile extends React.Component {
   
     render() {
       return (
-        <div> <h1> About the Team !!</h1>
+        <div> <h1>--User Profile--</h1>
           {this.state.profile.map(p => (
             <div> </div>
           ))}
