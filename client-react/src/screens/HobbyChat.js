@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../components/Header';
+
 
 
 class Hobbychat extends React.Component {

@@ -1,5 +1,5 @@
 // IMPORT PACKAGE REFERENCES
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Home from './screens/Home';
 import Profile from './screens/Profile';
@@ -8,7 +8,7 @@ import Hobbylist from './screens/Hobbylist';
 import HobbyChat from './screens/HobbyChat';
 import Signup from './screens/Signup';
 import Header from './components/Header';
-import { render } from 'react-dom';
+
 
 // IMPORT COMPONENT REFERENCES
 
