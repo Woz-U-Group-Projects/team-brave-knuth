@@ -16,7 +16,7 @@ public class Project {
   private String createdBy;
   private String name;
   private String hobby;
-  private String hobbyRate;
+  private String rate;
 
   public Long getId() {
     return this.id;
@@ -49,12 +49,12 @@ public class Project {
   public void setHobby(String hobby) {
     this.hobby = hobby;
   }
-  public String getHobbyRate() {
-    return this.hobbyRate;
+  public String getRate() {
+    return this.rate;
   }
 
-  public void setHobbyRate(String hobbyRate) {
-    this.hobbyRate = hobbyRate;
+  public void setRate(String rate) {
+    this.rate = rate;
   }
 
 }

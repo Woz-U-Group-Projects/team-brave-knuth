@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Table from 'react-bootstrap/Table'
 
 
 class Hobbylist extends React.Component {
@@ -17,14 +18,44 @@ class Hobbylist extends React.Component {
 
   render() {
     return (
-      <div> <h2>List of Hobbies</h2>
-        {this.state.hobbylist.map(p => (
+<div className="panel panel-primary">
+    <div className="panel-heading">
+      <h2>Hobby List</h2>
+    <div className="panel-body">
+ <Table striped bordered hover>
+  <thead>
+  <tr>
+      {/* <th>Created By</th> */}
+      <th>User Name</th>
+      <th>Hobby</th>
+      <th>Rate Hobby out of 10</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      {/* <td>{this.state.hobbylist.map(p => (
           <div key={p.id}>
-            {p.id} :  {p.createdBy}: {p.name} : {p.hobby} : {p.hobbyRate}
-          </div>
-        ))}
-      </div>
-      
+              {p.createdBy}
+           </div>))}
+      </td> */}
+      <td>{this.state.hobbylist.map(p => (
+          <div key={p.id}>
+             {p.name}
+           </div>))}</td>
+      <td>{this.state.hobbylist.map(p => (
+          <div key={p.id}>
+              {p.hobby}
+           </div>))}</td>
+      <td>{this.state.hobbylist.map(p => (
+          <div key={p.id}>
+             {p.rate}
+           </div>))}</td> 
+  </tr>
+    </tbody>
+    </Table>  
+    </div>
+    </div>
+    </div>
     );
     
   }

@@ -17,13 +17,15 @@ class Profile extends React.Component {
           {this.state.profile.map(p => (
             <div> </div>
           ))}
-        </div>
-        
+        </div>        
       );
       
     }
     
   }
   
+
+
+
   
   export default Profile;
