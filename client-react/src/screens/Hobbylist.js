@@ -1,12 +1,17 @@
+///// code works with database////
 import React from "react";
 import axios from "axios";
-import Table from 'react-bootstrap/Table'
+// import Table from 'react-bootstrap/Table';
+import { Button, ButtonGroup } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 
 class Hobbylist extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = { hobbylist: [] };
+    this.remove = this.remove.bind(this);
   
   }
  
@@ -15,53 +20,63 @@ class Hobbylist extends React.Component {
       .get("http://localhost:8080/hobbylist")
       .then(response => this.setState({ hobbylist: response.data }));
   }
-
-  render() {
-    return (
-<div className="panel panel-primary">
-    <div className="panel-heading">
-      <h2>Hobby List</h2>
-    <div className="panel-body">
- <Table striped bordered hover>
-  <thead>
-  <tr>
-      {/* <th>Created By</th> */}
-      <th>User Name</th>
-      <th>Hobby</th>
-      <th>Rate Hobby out of 10</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      {/* <td>{this.state.hobbylist.map(p => (
-          <div key={p.id}>
-              {p.createdBy}
-           </div>))}
-      </td> */}
-      <td>{this.state.hobbylist.map(p => (
-          <div key={p.id}>
-             {p.name}
-           </div>))}</td>
-      <td>{this.state.hobbylist.map(p => (
-          <div key={p.id}>
-              {p.hobby}
-           </div>))}</td>
-      <td>{this.state.hobbylist.map(p => (
-          <div key={p.id}>
-             {p.rate}
-           </div>))}</td> 
-  </tr>
-    </tbody>
-    </Table>  
-    </div>
-    </div>
-    </div>
-    );
-    
+  async remove(id) {
+    const url = 'http://localhost:8080/hobbylist/' + id
+    await fetch(url, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then(() => {
+      let updatedProject = [...this.state.hobbylist].filter(i => i.id !== id);
+      this.setState({Project: updatedProject});
+    });
   }
-  
+    render() {
+        return (
+        <div className="container"> 
+         <h2> Hobby List</h2>
+            <div className="panel panel-default p50 uth-panel">
+                <table className="table table-hover">
+                 
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Hobby</th>
+                            <th>Rate</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {this.state.hobbylist.map(p =>
+                      <tr key={p.id}>
+                        <td>{p.name} </td>
+                        <td>{p.hobby}</td>
+                        <td>{p.rate}</td>
+                        <td>  
+                          <ButtonGroup key={p.id}>
+                          <Button size="sm" color="primary" tag={Link} to={"/hobbylist" }>Edit</Button>
+                            <Button size="sm" color="danger"tag={Link} to={"/hobbylist" }>Delete</Button>
+                            
+                            {/* //trying to connect//
+
+                            <Button size="sm" color="primary" tag={Link} to={"/hobbylist" + p.id}>Edit</Button>
+                            <Button size="sm" color="danger" onClick={() => this.remove(p.id)}>Delete</Button>
+
+                            //trying to connect buttons for delete and add// */}
+                            </ButtonGroup>
+                       </td>
+                      </tr>
+                    )}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        );
+    }
 }
 
-
-
 export default Hobbylist;
+/// end of code that works with database///
+
