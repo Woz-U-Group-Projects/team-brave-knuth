@@ -180,9 +180,9 @@ class HobbyChat extends React.Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
+        {/* <div className="App-header">
           <Header title="Hobby Chats" />
-        </div>
+        </div> */}
         <Messages
           messages={this.state.messages}
           currentMember={this.state.member}
