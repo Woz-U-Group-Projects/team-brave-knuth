@@ -1,7 +1,31 @@
 import React from 'react';
-import Header from '../components/Header';
 
-const Profile  = () => <Header title="User Profile" Profile />;
 
-export default Profile;
+class Profile extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = { profile: [] };
+    }
+   
+    componentDidMount() {
+     
+    }
+  
+    render() {
+      return (
+        <div> <h1>--User Profile--</h1>
+          {this.state.profile.map(p => (
+            <div> </div>
+          ))}
+        </div>        
+      );
+      
+    }
+    
+  }
+  
 
+
+
+  
+  export default Profile;
