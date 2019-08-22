@@ -18,6 +18,7 @@ import Addahobby from './screens/Addahobby';
 
 
 export default class App extends React.Component {
+
   render() {    
     return (
       <div className="App">
@@ -33,64 +34,9 @@ export default class App extends React.Component {
        <Route path="/addahobby" component={Addahobby} />
        <Route path="/hobbychat" component={HobbyChat} />
     </Switch>
-          </div>
+          </div>  
         </Router>
       </div>
     );
   }
 }
-// export default function App() {
-//   return (
-//     <Switch>
-//       <Route exact path="/" component={Home} />
-//     <Route path="/signup" component={Signup} />
-//        <Route path="/profile" component={Profile} />
-//        <Route path="/about" component={About} />
-//        <Route path="/hobbylist" component={Hobbylist} />
-//        <Route path="/hobbychat" component={HobbyChat} />
-//     </Switch>
-//   )
-
-// }
-
-
-
-
-
-
-
-
-
-
-
-// // `App` COMPONENT
-// class App extends Component {
-// 	constructor(props) {
-// 		super(props);
-		
-//   }
-// 	render() {
-// 		return (
-// 			// Don't forget your routing!
-// 			//Hint! Look at the import statements to see what you need to use to route
-// 			<BrowserRouter>
-// 			</BrowserRouter>
-	  	
-	  
-//     )}};
-
-// export default App;
-
-
-// class App extends React.Component {
-// 	render() {
-// 	  return (
-// 		<div>
-// 		  <Header />
-// 		</div>
-// 	  );
-// 	}
-//   }
-  
-
-

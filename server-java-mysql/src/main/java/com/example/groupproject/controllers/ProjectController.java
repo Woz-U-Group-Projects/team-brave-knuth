@@ -31,7 +31,7 @@ public class ProjectController {
       seedProject.setCreatedBy("User");
       seedProject.setName("Sam's Hobby");
       seedProject.setHobby("Fishing");
-      seedProject.setHobbyRate("5/5");
+      seedProject.setRate("10/10");
       projectRepository.save(seedProject);
     }
     return projectRepository.findAll();
@@ -54,7 +54,7 @@ public class ProjectController {
       foundProject.setCreatedBy(project.getCreatedBy());
       foundProject.setName(project.getName());
       foundProject.setHobby(project.getHobby());
-      foundProject.setHobbyRate(project.getHobbyRate());
+      foundProject.setRate(project.getRate());
       projectRepository.save(foundProject);
       return foundProject;
     }
