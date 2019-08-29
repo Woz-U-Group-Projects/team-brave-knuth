@@ -1,30 +1,107 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Link, BrowserRouter} from 'react-router-dom';
+import './Header.css';
+import {
+   Collapse,
+   Navbar,
+   NavbarToggler,
+   NavbarBrand,
+   Nav,
+   NavItem,
+   NavLink,
+   UncontrolledDropdown,
+   DropdownToggle,
+   DropdownMenu,
+   DropdownItem } from 'reactstrap';
 
-const Header = ({ title }) => (
-    <nav className="header navbar navbar-dark bg-dark" style={{overflowX: 'hidden'}}>
-      <div className="container">
-         <div className="header-navigation-items">
-            <a href="/">Home</a>
-               <br />
-            <a href="/signup">Sign up</a>
-            <br />
-            <a href="/login">Login</a>
-            <br />
-            <a href="/about">About the Team</a>
-               <br />
-            <a href="/profile">Profile</a>
-               <br />
-            <a href="/hobbylist">Hobbies</a>
-               <br />
-               <a href="/addahobby">Add</a>
-               <br />
-            <a href="/hobbychat">Chatroom</a>       
-         </div>
-      </div>
-      <h2>{title}</h2>
-     </nav>
-);
+class Header extends Component {
+   constructor(props) {
+      super(props);
+      this.handleMenuClick = this.handleMenuClick.bind(this);
+   }
+
+   handleMenuClick({ key }) {
+      if(key === "logout") {
+         this.props.onLogout();
+      }
+   }
+
+    render() {
+      let navItems;
+      if(this.props.currentUser) {
+       navItems = [
+          <BrowserRouter>
+          <Navbar color="light" light expand="md">
+            <NavItem key="/hobbylist">
+               <NavLink href="/hobbylist">
+                  Hobby List
+               </NavLink>
+            </NavItem>
+            <NavItem key="/about">
+               <NavLink href="/about">
+                  About
+               </NavLink>
+            </NavItem>
+            <NavItem key="/addahobby">
+               <NavLink href="/addahobby">
+                  Add
+               </NavLink>
+            </NavItem>
+            <NavItem key="/hobbychat">
+               <NavLink href="/hobbychat">
+                  Hobby Chat 
+               </NavLink>
+            </NavItem>
+            </Navbar>
+            </BrowserRouter>
+      ];
+      } else {
+         navItems = [
+            <BrowserRouter>
+            <NavItem key="/login">
+               <NavLink to="/login">Login</NavLink>
+            </NavItem>,
+            <NavItem key="/signup">
+               <NavLink to="/signup">Signup</NavLink>
+            </NavItem>
+            </BrowserRouter>
+         ];
+      }
+      
+      return(
+         <div className="container">
+            <div className="app-title">
+               <h1> Hobby App </h1>  
+            </div>
+            <Nav mode="horizontal" style={{ lineHeight: '40px' }} >
+               {navItems}
+            </Nav>     
+         </div>   
+      );
+  }
+}
 
 export default Header;
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

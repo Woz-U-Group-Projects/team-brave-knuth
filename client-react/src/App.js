@@ -1,16 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Home from './screens/Home';
+import { BrowserRouter, Route} from 'react-router-dom';
 import Profile from './screens/Profile';
-import About from './screens/About';
 import Hobbylist from './screens/Hobbylist';
-import HobbyChat from './screens/HobbyChat';
 import Signup from './screens/Signup';
 import Login from './screens/Login';
 import Header from './components/Header';
-import Addahobby from './screens/Addahobby';
 import { getCurrentUser } from './util/APIUtils';
 import { ACCESS_TOKEN } from './constants';
+import  LoadingIndicator from './components/LoadingIndicator';
 
 // IMPORT CSS
 import './styles/App.css'
@@ -83,25 +80,34 @@ export default class App extends React.Component {
     this.props.history.push("/");
   }
   
-  render() {    
+  render() {  
+    if(this.state.isLoading) {
+      return <LoadingIndicator />
+    }  
     return (
-      <div className="App">
-        <Router>
-          <div>
-            <Header />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/signup" component={Signup} />
-              <Route path="/login" component={Login} />
-              <Route path="/profile" component={Profile} />
-              <Route path="/about" component={About} />
-              <Route path="/hobbylist" component={Hobbylist} />
-              <Route path="/addahobby" component={Addahobby} />
-              <Route path="/hobbychat" component={HobbyChat} />
-            </Switch>
-          </div>  
-        </Router>
-      </div>
+      <Layout className="app-container">
+          <Header isAuthenticated={this.state.isAuthenticated} 
+            currentUser={this.state.currentUser} 
+            onLogout={this.handleLogout} />
+      <Content className="app-content">
+        <div className="container">
+          <BrowserRouter>      
+                <Route exact path="/" 
+                  render={(props) => <Hobbylist isAuthenticated={this.state.isAuthenticated} 
+                  currentUser={this.state.currentUser} handleLogout={this.handleLogout} {...props} />}>
+                </Route>
+                <Route path="/login" 
+                  render={(props) => <Login onLogin={this.handleLogin} {...props} />}></Route>
+                <Route path="/signup" component={Signup}></Route>
+                <Route path="/users/:username" 
+                  render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>
+                </Route>
+          </BrowserRouter>
+        </div>
+      </Content>
+      </Layout> 
     );
   }
 }
+
+
