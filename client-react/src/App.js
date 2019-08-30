@@ -1,23 +1,23 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Home from './screens/Home';
-import Profile from './screens/Profile';
+import React, { Component } from 'react';
+import { BrowserRouter, Route} from 'react-router-dom';
+import './styles/App.css'
+
+import { ACCESS_TOKEN } from './constants';
+import  LoadingIndicator from './components/LoadingIndicator';
+
 import About from './screens/About';
 import Hobbylist from './screens/Hobbylist';
+import Addahobby from './screens/Addahobby';
 import HobbyChat from './screens/HobbyChat';
 import Signup from './screens/Signup';
 import Login from './screens/Login';
 import Header from './components/Header';
-import Addahobby from './screens/Addahobby';
 import { getCurrentUser } from './util/APIUtils';
-import { ACCESS_TOKEN } from './constants';
 
-// IMPORT CSS
-import './styles/App.css'
 import { Layout, notification } from 'antd';
 const { Content } = Layout;
 
-export default class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -58,7 +58,7 @@ export default class App extends React.Component {
     this.loadCurrentUser();
   }
 
-  handleLogout(redirectTo="/", notificationType="success", description="You're successfully logged out.") {
+  handleLogout(redirectTo="/login", notificationType="success", description="You're successfully logged out.") {
     localStorage.removeItem(ACCESS_TOKEN);
 
     this.setState({
@@ -80,28 +80,58 @@ export default class App extends React.Component {
       description: "You're successfully logged in.",
     });
     this.loadCurrentUser();
-    this.props.history.push("/");
+    this.props.history.push("/hobbylist");
   }
   
-  render() {    
+  render() {  
+    if(this.state.isLoading) {
+      return <LoadingIndicator />
+    }  
     return (
-      <div className="App">
-        <Router>
-          <div>
-            <Header />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/signup" component={Signup} />
-              <Route path="/login" component={Login} />
-              <Route path="/profile" component={Profile} />
-              <Route path="/about" component={About} />
-              <Route path="/hobbylist" component={Hobbylist} />
-              <Route path="/addahobby" component={Addahobby} />
-              <Route path="/hobbychat" component={HobbyChat} />
-            </Switch>
-          </div>  
-        </Router>
-      </div>
+      <Layout className="app-container">
+          <Header isAuthenticated={this.state.isAuthenticated} 
+            currentUser={this.state.currentUser} 
+            onLogout={this.handleLogout} />
+            
+      <Content className="app-content">
+        <div className="container">
+          <BrowserRouter>      
+                <Route exact path="/hobbylist" 
+                  render={(props) => <Hobbylist isAuthenticated={this.state.isAuthenticated} 
+                  currentUser={this.state.currentUser} handleLogout={this.handleLogout} {...props} />}>
+                </Route>
+                <Route exact path="/addahobby" 
+                  render={(props) => <Addahobby isAuthenticated={this.state.isAuthenticated} {...props} />}>
+                </Route>
+                <Route exact path="/about" 
+                  render={(props) => <About isAuthenticated={this.state.isAuthenticated} {...props} />}>
+                </Route>
+                <Route exact path="/hobbychat" 
+                  render={(props) => <HobbyChat isAuthenticated={this.state.isAuthenticated} {...props} />}>
+                </Route>
+                <Route path="/logout" 
+                  render={(props) => <Login onLogout={this.handleLogout} {...props} />}>  
+                </Route>
+                <Route path="/login" 
+                  render={(props) => <Login onLogin={this.handleLogin} {...props} />}>  
+                </Route>
+                <Route path="/signup" component={Signup}> 
+                </Route>
+                {/* <Route path="/users/:username" 
+                  render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>
+                </Route> */}
+          </BrowserRouter>
+        </div>
+      </Content>
+      </Layout> 
     );
   }
 }
+
+export default App;
+
+
+
+
+
+
