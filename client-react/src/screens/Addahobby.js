@@ -2,6 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 // import axios from "axios";
 import { Button, Container, Form, FormGroup, Input, Label } from "reactstrap";
+import { ACCESS_TOKEN } from '../constants';
 
 class Addahobby extends React.Component {
   emptyItem = {
@@ -40,12 +41,13 @@ class Addahobby extends React.Component {
     alert("A Hobby was submitted!");
     event.preventDefault();
     const { item } = this.state;
-
-    await fetch("http://localhost:8080/hobbylist" + item.id, {
+    let token = localStorage.getItem(ACCESS_TOKEN);
+    await fetch("http://localhost:8080/hobbylist", {
       method: item.id ? "PUT" : "POST",
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Authorization":"Bearer "+token,
       },
       body: JSON.stringify(item)
     });

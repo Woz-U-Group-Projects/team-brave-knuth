@@ -70,6 +70,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                     .and()
                 .authorizeRequests()
+                	.antMatchers(HttpMethod.OPTIONS,"/**").permitAll()
                     .antMatchers("/",
                         "/favicon.ico",
                         "/**/*.png",
@@ -84,7 +85,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         .permitAll()
                     .antMatchers("/api/user/checkUsernameAvailability", "/api/user/checkEmailAvailability")
                         .permitAll()
-                    .antMatchers(HttpMethod.GET, "/api/hobbies/**", "/api/users/**")
+                    .antMatchers(HttpMethod.GET, "/api/hobbies/**", "/api/users/**","/hobbylist/**")
                         .permitAll()
                     .anyRequest()
                         .authenticated();

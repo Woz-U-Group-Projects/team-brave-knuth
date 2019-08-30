@@ -16,6 +16,7 @@ import java.util.TimeZone;
 
 public class GroupProjectApplication {
 
+	
 	@PostConstruct
 	void init() {
 		TimeZone.setDefault(TimeZone.getTimeZone("UTC"));

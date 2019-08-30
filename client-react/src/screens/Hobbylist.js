@@ -4,6 +4,8 @@ import axios from "axios";
 // import Table from 'react-bootstrap/Table';
 import { Button, ButtonGroup } from "reactstrap";
 import { Link } from "react-router-dom";
+import DeleteaHobby from './Deleteahobby';
+
 
 class Hobbylist extends React.Component {
   constructor(props) {
@@ -47,7 +49,7 @@ class Hobbylist extends React.Component {
             <tbody>
               {this.state.hobbylist.map(p => (
                 <tr key={p.id}>
-                  <td>{p.name} </td>
+                  <td>{p.name}{p.id}</td>
                   <td>{p.hobby}</td>
                   <td>{p.rate}</td>
                   <td>
@@ -61,7 +63,7 @@ class Hobbylist extends React.Component {
                         {" "}
                         Edit
                       </Button>
-                      <Button
+                      {/* <Button
                         size="sm"
                         color="danger"
                         tag={Link}
@@ -69,8 +71,8 @@ class Hobbylist extends React.Component {
                       >
                         {" "}
                         Delete
-                      </Button>
-
+                      </Button> */}
+                    <DeleteaHobby id={p.id}/>
                       {/* //trying to connect//
 
                             <Button size="sm" color="primary" tag={Link} to={"/hobbylist" + p.id}>Edit</Button>
