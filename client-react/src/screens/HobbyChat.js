@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../components/Header";
+//import Header from "../components/Header";
 import "../styles/HobbyChat.css";
 import Messages from "../components/Messages";
 import Input from "../components/Input";
@@ -182,7 +182,7 @@ class HobbyChat extends React.Component {
     return (
       <div className="App">
         <div className="App-header">
-          <Header title="Hobby Chats" />
+          {/* <Header title="Hobby Chats" /> */}
         </div>
         <Messages
           messages={this.state.messages}
