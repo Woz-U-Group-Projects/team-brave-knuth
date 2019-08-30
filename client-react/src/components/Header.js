@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
-import { Link, BrowserRouter} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './Header.css';
-import {
-   Collapse,
+import { 
    Navbar,
-   NavbarToggler,
-   NavbarBrand,
    Nav,
    NavItem,
    NavLink,
-   UncontrolledDropdown,
-   DropdownToggle,
    DropdownMenu,
-   DropdownItem } from 'reactstrap';
+   DropdownItem,
+   UncontrolledDropdown,
+   DropdownToggle } from 'reactstrap';
 
-class Header extends Component {
+export default class Header extends Component {
    constructor(props) {
       super(props);
       this.handleMenuClick = this.handleMenuClick.bind(this);
@@ -37,11 +34,6 @@ class Header extends Component {
                   Hobby List
                </NavLink>
             </NavItem>
-            <NavItem key="/about">
-               <NavLink href="/about">
-                  About
-               </NavLink>
-            </NavItem>
             <NavItem key="/addahobby">
                <NavLink href="/addahobby">
                   Add
@@ -52,6 +44,14 @@ class Header extends Component {
                   Hobby Chat 
                </NavLink>
             </NavItem>
+            <NavItem key="/about">
+               <NavLink href="/about">
+                  About
+               </NavLink>
+            </NavItem>
+            <NavItem key="/logout">
+               <NavLink to="/login">Logout</NavLink>
+            </NavItem>
             </Navbar>
             </BrowserRouter>
       ];
@@ -60,7 +60,7 @@ class Header extends Component {
             <BrowserRouter>
             <NavItem key="/login">
                <NavLink to="/login">Login</NavLink>
-            </NavItem>,
+            </NavItem>
             <NavItem key="/signup">
                <NavLink to="/signup">Signup</NavLink>
             </NavItem>
@@ -71,17 +71,44 @@ class Header extends Component {
       return(
          <div className="container">
             <div className="app-title">
-               <h1> Hobby App </h1>  
+               <NavLink href="/hobbylist"><h1> Hobby-App </h1></NavLink>  
             </div>
             <Nav mode="horizontal" style={{ lineHeight: '40px' }} >
                {navItems}
             </Nav>     
          </div>   
+         
       );
   }
 }
 
-export default Header;
+// function ProfileDropdownMenu(props) {
+// const dropdownMenu = (
+//      <Nav onClick={props.handleMenuClick} className="profile-dropdown-menu">
+//        <Nav.Item key="user-info" className="dropdown-item" disabled>
+//          <div className="user-full-name-info">
+//            {props.currentUser.name}
+//          </div>
+//          <div className="username-info">
+//            @{props.currentUser.username}
+//          </div>
+//        </Nav.Item> 
+//        <DropdownItem divider/>
+//        <Nav.Item key="logout" className="dropdown-item">
+//          Logout
+//        </Nav.Item>
+//      </Nav>
+// );
+
+//    return (
+//      <DropdownMenu overlay={dropdownMenu} trigger={['click']} getPopupContainer = { () => document.getElementsByClassName('profile-menu')[0]}>
+//         Menu
+//      </DropdownMenu>
+//    );
+//  }
+
+
+//export default Header;
 
 
  
