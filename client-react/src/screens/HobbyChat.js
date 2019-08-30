@@ -1,9 +1,9 @@
-
 import React from "react";
 import Header from "../components/Header";
 import "../styles/HobbyChat.css";
-import Messages from "./Messages";
-import Input from "./Input";
+import Messages from "../components/Messages";
+import Input from "../components/Input";
+import ChatNames from "../components/ChatNames";
 
 function randomName() {
   const adjectives = [
@@ -152,7 +152,8 @@ class HobbyChat extends React.Component {
     messages: [],
     member: {
       username: randomName(),
-      color: randomColor()
+      color: randomColor(),
+      hobby: "birds"
     }
   };
 
@@ -186,8 +187,10 @@ class HobbyChat extends React.Component {
         <Messages
           messages={this.state.messages}
           currentMember={this.state.member}
+          hobby={this.state.hobby}
         />
         <Input onSendMessage={this.onSendMessage} />
+        <ChatNames />
       </div>
     );
   }
