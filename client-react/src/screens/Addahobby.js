@@ -22,7 +22,7 @@ class Addahobby extends React.Component {
 
     async componentDidMount() {
       if (this.props.match.params.id !== 'new') {
-        const hobby = await (await fetch(`/hobbylist/${this.props.match.params.id}`)).json();
+        const hobby = await (await fetch(`/hobbylist/${this.props.match.params.id}`)).text();
         this.setState({item: hobby});
       }
     };

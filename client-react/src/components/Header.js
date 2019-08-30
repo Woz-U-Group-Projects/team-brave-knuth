@@ -6,10 +6,11 @@ import {
    Nav,
    NavItem,
    NavLink,
-   DropdownMenu,
-   DropdownItem,
-   UncontrolledDropdown,
-   DropdownToggle } from 'reactstrap';
+   // DropdownMenu,
+   // DropdownItem,
+   // UncontrolledDropdown,
+   // DropdownToggle 
+} from 'reactstrap';
 
 export default class Header extends Component {
    constructor(props) {
