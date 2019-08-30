@@ -39,6 +39,14 @@ export function signup(signupRequest) {
     });
 }
 
+export function Addahobby(Addahobby) {
+    return request({
+        url: API_BASE_URL + "/addahobby",
+        method: 'POST',
+        body: JSON.stringify(Addahobby)
+    });
+}
+
 export function checkUsernameAvailability(username) {
     return request({
         url: API_BASE_URL + "/user/checkUsernameAvailability?username=" + username,

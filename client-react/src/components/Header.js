@@ -34,7 +34,7 @@ export default class Header extends Component {
               <NavLink href="/hobbylist">Hobby List</NavLink>
             </NavItem>
             <NavItem key="/addahobby">
-              <NavLink href="/addahobby">Add</NavLink>
+              <NavLink href="/addahobby">Add Hobby</NavLink>
             </NavItem>
             <NavItem key="/hobbychat">
               <NavLink href="/hobbychat">Hobby Chat</NavLink>

@@ -1,4 +1,4 @@
-///// code works with database////
+/// code works with database////
 import React from "react";
 import axios from "axios";
 // import Table from 'react-bootstrap/Table';
@@ -9,7 +9,7 @@ class Hobbylist extends React.Component {
   constructor(props) {
     super(props);
     this.state = { hobbylist: [] };
-    this.remove = this.remove.bind(this);
+    // this.remove = this.remove.bind(this);
   }
 
   componentDidMount() {
@@ -17,19 +17,19 @@ class Hobbylist extends React.Component {
       .get("http://localhost:8080/hobbylist")
       .then(response => this.setState({ hobbylist: response.data }));
   }
-  async remove(id) {
-    const url = "http://localhost:8080/hobbylist/" + id;
-    await fetch(url, {
-      method: "DELETE",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    }).then(() => {
-      let updatedProject = [...this.state.hobbylist].filter(i => i.id !== id);
-      this.setState({ Project: updatedProject });
-    });
-  }
+  // async remove(id) {
+  //   const url = "http://localhost:8080/hobbylist/" + this.id;
+  //   await fetch(url, {
+  //     method: "DELETE",
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json"
+  //     }
+  //   }).then(() => {
+  //     let updatedProject = [...this.state.hobbylist].filter(i => i.id !== id);
+  //     this.setState({ Project: updatedProject });
+  //   });
+  // }
   render() {
     return (
       <div className="container">
@@ -91,3 +91,5 @@ class Hobbylist extends React.Component {
 
 export default Hobbylist;
 /// end of code that works with database///
+
+

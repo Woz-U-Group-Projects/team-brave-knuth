@@ -41,7 +41,7 @@ class Addahobby extends React.Component {
     event.preventDefault();
     const { item } = this.state;
 
-    await fetch("http://localhost:5000/api/hobbylist", {
+    await fetch("http://localhost:8080/hobbylist" + item.id, {
       method: item.id ? "PUT" : "POST",
       headers: {
         Accept: "application/json",
