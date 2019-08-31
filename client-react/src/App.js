@@ -109,9 +109,9 @@ class App extends Component {
                 <Route exact path="/hobbychat" 
                   render={(props) => <HobbyChat isAuthenticated={this.state.isAuthenticated} {...props} />}>
                 </Route>
-                <Route path="/logout" 
+                {/* <Route path="/logout" 
                   render={(props) => <Login onLogout={this.handleLogout} {...props} />}>  
-                </Route>
+                </Route> */}
                 <Route path="/login" 
                   render={(props) => <Login onLogin={this.handleLogin} {...props} />}>  
                 </Route>

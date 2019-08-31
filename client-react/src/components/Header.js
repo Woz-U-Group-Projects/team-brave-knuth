@@ -49,9 +49,9 @@ export default class Header extends Component {
                   About
                </NavLink>
             </NavItem>
-            <NavItem key="/logout">
+            {/* <NavItem key="/logout">
                <NavLink to="/login">Logout</NavLink>
-            </NavItem>
+            </NavItem> */}
             </Navbar>
             </BrowserRouter>
       ];
