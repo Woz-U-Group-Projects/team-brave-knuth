@@ -43,7 +43,7 @@ export default class Header extends Component {
               <NavLink href="/about">About</NavLink>
             </NavItem>
             <NavItem key="/logout">
-              <NavLink to="/login">Logout</NavLink>
+              <NavLink href="/login">Logout</NavLink>
             </NavItem>
           </Navbar>
         </BrowserRouter>
@@ -52,10 +52,10 @@ export default class Header extends Component {
       navItems = [
         <BrowserRouter>
           <NavItem key="/login">
-            <NavLink to="/login">Login</NavLink>
+            <NavLink href="/login">Login</NavLink>
           </NavItem>
           <NavItem key="/signup">
-            <NavLink to="/signup">Signup</NavLink>
+            <NavLink href="/signup">Signup</NavLink>
           </NavItem>
         </BrowserRouter>
       ];
@@ -64,7 +64,7 @@ export default class Header extends Component {
     return (
       <div className="container">
         <div className="app-title">
-          <NavLink href="/hobbylist">
+          <NavLink href="/">
             <h1> Hobby-App </h1>
           </NavLink>
         </div>
@@ -75,30 +75,3 @@ export default class Header extends Component {
     );
   }
 }
-
-// function ProfileDropdownMenu(props) {
-// const dropdownMenu = (
-//      <Nav onClick={props.handleMenuClick} className="profile-dropdown-menu">
-//        <Nav.Item key="user-info" className="dropdown-item" disabled>
-//          <div className="user-full-name-info">
-//            {props.currentUser.name}
-//          </div>
-//          <div className="username-info">
-//            @{props.currentUser.username}
-//          </div>
-//        </Nav.Item>
-//        <DropdownItem divider/>
-//        <Nav.Item key="logout" className="dropdown-item">
-//          Logout
-//        </Nav.Item>
-//      </Nav>
-// );
-
-//    return (
-//      <DropdownMenu overlay={dropdownMenu} trigger={['click']} getPopupContainer = { () => document.getElementsByClassName('profile-menu')[0]}>
-//         Menu
-//      </DropdownMenu>
-//    );
-//  }
-
-//export default Header;
