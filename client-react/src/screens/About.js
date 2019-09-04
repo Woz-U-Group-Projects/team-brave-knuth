@@ -25,7 +25,7 @@ class About extends React.Component {
             We've been working on this project over the last 6 weeks and hope
             you enjoy it! Feel free to view our code at
             <a href="https://github.com/Woz-U-Group-Projects/team-brave-knuth">
-              github.com
+              : github.com
             </a>
             .
           </h5>
