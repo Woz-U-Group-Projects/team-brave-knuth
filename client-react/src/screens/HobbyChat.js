@@ -1,10 +1,10 @@
 import React from "react";
-//import Header from "../components/Header";
 import "../styles/HobbyChat.css";
 import Messages from "../components/Messages";
 import Input from "../components/Input";
 import ChatNames from "../components/ChatNames";
 
+//selects a random username
 function randomName() {
   const adjectives = [
     "autumn",
@@ -143,17 +143,19 @@ function randomName() {
   return adjective + noun;
 }
 
+//selects a random color
 function randomColor() {
   return "#" + Math.floor(Math.random() * 0xffffff).toString(16);
 }
 
+//main hobbychat component
 class HobbyChat extends React.Component {
   state = {
     messages: [],
     member: {
       username: randomName(),
       color: randomColor(),
-      hobby: "birds"
+      hobby: "none"
     }
   };
 
@@ -176,21 +178,27 @@ class HobbyChat extends React.Component {
       messages.push({ member, text: data });
       this.setState({ messages });
     });
+
+    this.mutateHobby = this.mutateHobby.bind(this);
+  }
+
+  mutateHobby(newValue) {
+    console.log("HobbyChat value before change is: " + this.state.member.hobby);
+    const updatedMember = this.state.member;
+    updatedMember.hobby = newValue;
+    this.setState({ member: updatedMember });
+    console.log("HobbyChat value after change is: " + this.state.member.hobby);
   }
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          {/* <Header title="Hobby Chats" /> */}
-        </div>
+      <div className="ChatApp">
         <Messages
           messages={this.state.messages}
           currentMember={this.state.member}
-          hobby={this.state.hobby}
         />
         <Input onSendMessage={this.onSendMessage} />
-        <ChatNames />
+        <ChatNames value={this.state.hobby} mutateState={this.mutateHobby} />
       </div>
     );
   }
