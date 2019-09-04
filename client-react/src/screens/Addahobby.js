@@ -3,6 +3,8 @@ import { Link, withRouter } from "react-router-dom";
 // import axios from "axios";
 import { Button, Container, Form, FormGroup, Input, Label } from "reactstrap";
 import { ACCESS_TOKEN } from '../constants';
+import Ratingstar, {rating} from './Ratingstar';
+import StarRatingComponent from 'react-star-rating-component';
 
 class Addahobby extends React.Component {
   emptyItem = {
@@ -16,9 +18,16 @@ class Addahobby extends React.Component {
     this.state = {
       item: this.emptyItem
     };
+    
+
+
+    
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+
+  
 
     async componentDidMount() {
       if (this.props.match.params.id !== 'new') {
@@ -86,8 +95,11 @@ class Addahobby extends React.Component {
               />
             </FormGroup>
             <FormGroup>
-              <Label for="rate">Rated out of 10</Label>
-              <Input
+              <Label for="rate">Rated </Label>
+              <Ratingstar/>
+
+              {/* this input works, trying to get stars */}
+              {/* <Input
                 type="text"
                 placeholder="ex: 5/10"
                 name="rate"
@@ -95,9 +107,9 @@ class Addahobby extends React.Component {
                 value={item.rate || ""}
                 onChange={this.handleChange}
                 autoComplete="hobby-level1"
-              />
+              /> */}
             </FormGroup>
-
+   
             <FormGroup>
               <Button color="primary" type="submit">
                 Save
