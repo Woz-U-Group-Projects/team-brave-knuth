@@ -182,6 +182,7 @@ class HobbyChat extends React.Component {
     this.mutateHobby = this.mutateHobby.bind(this);
   }
 
+  //updates the state to reflect the user's input
   mutateHobby(newValue) {
     console.log("HobbyChat value before change is: " + this.state.member.hobby);
     const updatedMember = this.state.member;

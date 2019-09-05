@@ -24,7 +24,7 @@ class ChatNames extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Enter a hobby:
+          Enter your favorite hobby:
           <input
             type="text"
             value={this.state.value}
