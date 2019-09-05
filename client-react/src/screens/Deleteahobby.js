@@ -33,10 +33,6 @@ export default class DeleteHobby extends Component {
     } catch (event) {
       console.log(`😱 Axios request failed: ${event}`);
     }
-
-
-
-    
     
   }
   
