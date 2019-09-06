@@ -6,10 +6,10 @@ import {
   Nav,
   NavItem,
   NavLink,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  DropdownToggle
+  // DropdownMenu,
+  // DropdownItem,
+  // UncontrolledDropdown,
+  // DropdownToggle
 } from "reactstrap";
 
 export default class Header extends Component {
@@ -40,7 +40,7 @@ export default class Header extends Component {
               <NavLink href="/hobbychat">Hobby Chat</NavLink>
             </NavItem>
             <NavItem key="/about">
-              <NavLink href="/about">About</NavLink>
+              <NavLink href="/About">About</NavLink>
             </NavItem>
             <NavItem key="/logout">
               <NavLink href="/logout">Logout</NavLink>

@@ -1,71 +1,69 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import {withRouter } from "react-router-dom";
 // import axios from "axios";
-import { Button, Container, Form, FormGroup, Input, Label } from "reactstrap";
+import { Button} from "reactstrap";
 import { ACCESS_TOKEN } from '../constants';
-import axios from 'axios';
+// import Ratingstar, {rating} from './Ratingstar';
+// import StarRatingComponent from 'react-star-rating-component';
 
 class Addahobby extends React.Component {
-  id = {
+  emptyItem = {
     name: "",
     hobby: "",
-    rate: ""
+     rate: ""
   };
 
   constructor(props) {
     super(props);
-    this.state = { id: '' };
+    this.state = {
+      item: this.emptyItem
+    };
+    
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
-  componentDidMount() {
-    axios.get(`http://localhost:8080/hobbylist/`)
-      .then(res => {
-        const id = res.data;
-        this.setState({ id });
-      })
-  }
-
-    // componentDidMount() {
-    //   if (this.props.match.params.id !== 'new') {
-    //     const hobby =  (fetch(`/hobbylist/${this.props.match.params.id}`)).text();
-    //     this.setState({item: hobby});
-    //   }
-    // };
+    async componentDidMount() {
+      if (this.props.match.params.id !== 'New') {
+        const hobby = await (await fetch(`/hobbylist/${this.props.match.params.id}`)).text();
+        this.setState({item: hobby});
+      }
+    };
     
     handleChange(event) {
-      const { id } = this.state;
-      this.setState({id});
+      const target = event.target;
+      const value = target.value;
+      const name = target.name;
+      let item = {...this.state.item};
+      item[name] = value;
+      this.setState({item});
     }
-
-
-  handleSubmit(event) {
-     event.preventDefault();
-     const { id } = this.state;
-      let token = localStorage.getItem(ACCESS_TOKEN);
-            axios.put(
-              'http://localhost:8080/hobbylist/'+this.props.id,
-            {headers: {
-              "Authorization":"Bearer "+token,
-                'Accept': 'application/json, text/plain, */*'
-              },
-              body: JSON.stringify(id)
-            }
-              )
-    this.props.history.push("/hobbylist");
     
-              
+
+
+  async handleSubmit(event) {
+    alert("Editting Hobby");
+    const { item } = this.state;
+    let token = localStorage.getItem(ACCESS_TOKEN);
+    await fetch("http://localhost:8080/hobbylist" + this.props.item, {
+      method: item.id ? "PUT" : "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Authorization":"Bearer "+token,
+      },
+      body: JSON.stringify(item)
+    });
+    this.props.history.push("/hobbylist");
   }
 
+  
   render() {
-
-      return (
-        <div>
-          <form onSubmit={this.handleSubmit}>
-            <Button size="sm"  type="submit">Edit</Button>
-          </form>
-        </div>
-      )
-    }
+    return (
+              <Button size="sm" type="submit" color="warning">Edit</Button>
+           
+    );
   }
+}
+
 export default withRouter(Addahobby);

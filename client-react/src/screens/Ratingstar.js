@@ -1,6 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import StarRatingComponent from 'react-star-rating-component';
+import { Input } from "reactstrap";
  
 export default class Star extends React.Component {
   constructor() {
@@ -20,14 +21,20 @@ export default class Star extends React.Component {
     
     return (                
       <div>
-        <h7>{rating}</h7>
+    
         <StarRatingComponent 
           name="rate1" 
           starCount={10}
           value={rating}
           onStarClick={this.onStarClick.bind(this)}
-    
         />
+        <Input
+                type="text"
+                name="name"
+                id="name"
+                value={rating || ""}
+                onStarClick={this.onStarClick.bind(this)}
+              />
       </div>
 
      
