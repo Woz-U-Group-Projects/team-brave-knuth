@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, withRouter} from 'react-router-dom';
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import './styles/App.css'
 
 import { ACCESS_TOKEN } from './constants';
@@ -15,6 +15,7 @@ import Header from './components/Header';
 import { getCurrentUser } from './util/APIUtils';
 
 import { Layout, notification } from 'antd';
+import Logout from './components/Logout';
 const { Content } = Layout;
 
 class App extends Component {
@@ -25,7 +26,7 @@ class App extends Component {
       isAuthenticated: false,
       isLoading: false
     }
-    this.handleLogout = this.handleLogout.bind(this);
+    
     this.loadCurrentUser = this.loadCurrentUser.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
 
@@ -55,34 +56,22 @@ class App extends Component {
   }
 
   componentDidMount() {
+    if(localStorage.getItem(ACCESS_TOKEN) != null)
+    {
     this.loadCurrentUser();
+    }
   }
 
-  handleLogout(redirectTo="/login", notificationType="success", description="You're successfully logged out.") {
-    localStorage.removeItem(ACCESS_TOKEN);
+    handleLogin() {
+      notification.success({
+        message: 'Hobby App',
+        description: "You're successfully logged in.",
+      });
 
-    this.setState({
-      currentUser: null,
-      isAuthenticated: false
-    });
-
-    this.props.history.push(redirectTo);
+      this.loadCurrentUser();
+      this.props.history.push("/hobbylist");
+    }
     
-    notification[notificationType]({
-      message: 'Hobby App',
-      description: description,
-    });
-  }
-
-  handleLogin() {
-    notification.success({
-      message: 'Hobby App',
-      description: "You're successfully logged in.",
-    });
-    this.loadCurrentUser();
-    this.props.history.push("/hobbylist");
-  }
-  
   render() {  
     if(this.state.isLoading) {
       return <LoadingIndicator />
@@ -95,31 +84,31 @@ class App extends Component {
             
       <Content className="app-content">
         <div className="container">
-          <BrowserRouter>      
+          <BrowserRouter>  
+          <Switch>
                 <Route exact path="/hobbylist" 
                   render={(props) => <Hobbylist isAuthenticated={this.state.isAuthenticated} 
                   currentUser={this.state.currentUser} handleLogout={this.handleLogout} {...props} />}>
                 </Route>
                 <Route exact path="/addahobby" 
-                  render={(props) => <Addahobby isAuthenticated={this.state.isAuthenticated} {...props} />}>
+                  render={(props) => <Addahobby isAuthenticated={this.state.isAuthenticated}
+                  currentUser={this.state.currentUser} handleLogout={this.handleLogout} {...props} />}>
                 </Route>
                 <Route exact path="/about" 
-                  render={(props) => <About isAuthenticated={this.state.isAuthenticated} {...props} />}>
+                  render={(props) => <About isAuthenticated={this.state.isAuthenticated}
+                  currentUser={this.state.currentUser} handleLogout={this.handleLogout} {...props} />}>
                 </Route>
                 <Route exact path="/hobbychat" 
-                  render={(props) => <HobbyChat isAuthenticated={this.state.isAuthenticated} {...props} />}>
+                  render={(props) => <HobbyChat isAuthenticated={this.state.isAuthenticated}
+                  currentUser={this.state.currentUser} handleLogout={this.handleLogout} {...props} />}>
                 </Route>
-                {/* <Route path="/logout" 
-                  render={(props) => <Login onLogout={this.handleLogout} {...props} />}>  
-                </Route> */}
+                <Route path="/logout" component={Logout}></Route>
                 <Route path="/login" 
                   render={(props) => <Login onLogin={this.handleLogin} {...props} />}>  
                 </Route>
-                <Route path="/signup" component={Signup}> 
-                </Route>
-                {/* <Route path="/users/:username" 
-                  render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>
-                </Route> */}
+                {/* <Route path="/login" component={Login}></Route> */}
+                <Route path="/signup" component={Signup}></Route>
+                </Switch>    
           </BrowserRouter>
         </div>
       </Content>

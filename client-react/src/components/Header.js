@@ -5,11 +5,7 @@ import {
   Navbar,
   Nav,
   NavItem,
-  NavLink,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  DropdownToggle
+  NavLink
 } from "reactstrap";
 
 export default class Header extends Component {
@@ -26,6 +22,7 @@ export default class Header extends Component {
 
   render() {
     let navItems;
+    console.log(this.props.currentUser);
     if (this.props.currentUser) {
       navItems = [
         <BrowserRouter>
@@ -43,7 +40,7 @@ export default class Header extends Component {
               <NavLink href="/about">About</NavLink>
             </NavItem>
             <NavItem key="/logout">
-              <NavLink href="/login">Logout</NavLink>
+              <NavLink href="/logout">Logout</NavLink>
             </NavItem>
           </Navbar>
         </BrowserRouter>

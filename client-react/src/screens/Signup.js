@@ -49,7 +49,7 @@ class Signup extends Component {
         });
     }
 
-    handleSubmit(event) {
+    handleSubmit = event => {
         event.preventDefault();
     
         const signupRequest = {

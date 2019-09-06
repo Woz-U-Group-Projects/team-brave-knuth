@@ -11,22 +11,51 @@ class Login extends Component {
     render() {
         const NormalLoginForm = Form.create()(LoginForm)
         return (
-            <div className="login-container">
-                <h1 className="page-title">Login</h1>
-                <div className="login-content">
-                    <NormalLoginForm onLogin={this.props.onLogin} />
-                </div>
+        <div className="login-container">
+            <h1 className="page-title">Login</h1>
+            <div className="login-content">
+            <NormalLoginForm onLogin={this.props.onLogin} {...this.props} />
             </div>
-        );
+        </div>
+            );
+        }
     }
-}
-
 class LoginForm extends Component {
     constructor(props) {
-        super(props);
+    super(props);
+    // this.state = {
+    //     username: {
+    //         value: ''
+    //     },
+    //     password: {
+    //         value: ''
+    //     }
+    // }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    // handleSubmit = event => {
+    //     event.preventDefault();
+    
+    //     const loginRequest = {
+    //         username: this.state.username.value,
+    //         password: this.state.password.value
+    //     };
+    //     login(loginRequest)
+    //     .then(response => {
+    //         localStorage.setItem(ACCESS_TOKEN, response.accessToken);
+    //         notification.success({
+    //             message: 'Hobby App',
+    //             description: "Thank you! You're successfully logged in!",
+    //         });          
+    //         this.props.history.push("/hobbylist");
+    //     }).catch(error => {
+    //         notification.error({
+    //             message: 'Hobby App',
+    //             description: error.message || 'Sorry! Something went wrong. Please try again!'
+    //         });
+    //     });
+    // }
     handleSubmit(event) {
         event.preventDefault();   
         this.props.form.validateFields((err, values) => {
@@ -42,11 +71,11 @@ class LoginForm extends Component {
                             message: 'Hobby App',
                             description: 'Your Username or Password is incorrect. Please try again!'
                         });                    
-                    } else {
-                        notification.error({
-                            message: 'Hobby App',
-                            description: error.message || 'Sorry! Something went wrong. Please try again!'
-                        });                                            
+                    // } else {
+                    //     notification.error({
+                    //         message: 'Hobby App',
+                    //         description: error.message || 'Sorry! Something went wrong. Please try again!'
+                    //     });                                            
                     }
                 });
             }
@@ -91,3 +120,6 @@ class LoginForm extends Component {
 
 
 export default Login;
+
+
+
