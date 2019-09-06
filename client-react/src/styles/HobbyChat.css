@@ -1,17 +1,17 @@
-.App {
+.ChatApp {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
+  min-height: 75vh;
 }
 
-.App-header {
+/* .App-header {
   background-color: #262626;
   overflow: visible;
   width: 100%;
   text-align: center;
   color: white;
-}
+} */
 
 .Messages-list {
   padding: 20px 0;

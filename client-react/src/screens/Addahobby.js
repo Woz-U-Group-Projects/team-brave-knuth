@@ -1,14 +1,16 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 // import axios from "axios";
 import { Button, Container, Form, FormGroup, Input, Label } from "reactstrap";
 import { ACCESS_TOKEN } from '../constants';
+// import Ratingstar, {rating} from './Ratingstar';
+// import StarRatingComponent from 'react-star-rating-component';
 
 class Addahobby extends React.Component {
   emptyItem = {
     name: "",
     hobby: "",
-    rate: ""
+     rate: ""
   };
 
   constructor(props) {
@@ -16,6 +18,7 @@ class Addahobby extends React.Component {
     this.state = {
       item: this.emptyItem
     };
+        
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -35,8 +38,7 @@ class Addahobby extends React.Component {
       item[name] = value;
       this.setState({item});
     }
-
-
+    
   async handleSubmit(event) {
     alert("A Hobby was submitted!");
     event.preventDefault();
@@ -57,7 +59,6 @@ class Addahobby extends React.Component {
   render() {
     const { item } = this.state;
     const title = <h2>{item.id ? "Edit Hobby" : "Add a Hobby"}</h2>;
-
     return (
       <div>
         <Container>
@@ -66,6 +67,7 @@ class Addahobby extends React.Component {
             <FormGroup>
               <Label for="name">Name</Label>
               <Input
+              placeholder="Rodger"
                 type="text"
                 name="name"
                 id="name"
@@ -78,6 +80,7 @@ class Addahobby extends React.Component {
               <Label for="hobby">Hobby</Label>
               <Input
                 type="text"
+                placeholder="Running"
                 name="hobby"
                 id="hobby"
                 value={item.hobby || ""}
@@ -86,23 +89,28 @@ class Addahobby extends React.Component {
               />
             </FormGroup>
             <FormGroup>
-              <Label for="rate">Rated out of 10</Label>
+              <Label for="rate">Rate Out of 9</Label>
+              {/* <Ratingstar/> */}
+
+              {/* this input works, trying to get stars */}
               <Input
                 type="text"
-                placeholder="ex: 5/10"
+                placeholder="9"
                 name="rate"
                 id="rate"
                 value={item.rate || ""}
                 onChange={this.handleChange}
+                maxlength="1"
+                oninput="this.value=this.value.replace(/[^0-10]/g"
                 autoComplete="hobby-level1"
               />
             </FormGroup>
-
+   
             <FormGroup>
               <Button color="primary" type="submit">
                 Save
               </Button>{" "}
-              <Button color="secondary" tag={Link} to="/groups">
+              <Button color="secondary" href="/hobbylist">
                 Cancel
               </Button>
             </FormGroup>

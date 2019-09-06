@@ -15,8 +15,6 @@ export default class DeleteHobby extends Component {
   // }
 
   handleSubmit = event => {
-    event.preventDefault();
-    
     try {
       //const id = this.state
       let token = localStorage.getItem(ACCESS_TOKEN);
@@ -33,10 +31,6 @@ export default class DeleteHobby extends Component {
     } catch (event) {
       console.log(`😱 Axios request failed: ${event}`);
     }
-
-
-
-    
     
   }
   

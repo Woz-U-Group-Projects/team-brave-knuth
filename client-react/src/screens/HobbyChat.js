@@ -1,159 +1,22 @@
 import React from "react";
-//import Header from "../components/Header";
 import "../styles/HobbyChat.css";
 import Messages from "../components/Messages";
 import Input from "../components/Input";
 import ChatNames from "../components/ChatNames";
 
-function randomName() {
-  const adjectives = [
-    "autumn",
-    "hidden",
-    "bitter",
-    "misty",
-    "silent",
-    "empty",
-    "dry",
-    "dark",
-    "summer",
-    "icy",
-    "delicate",
-    "quiet",
-    "white",
-    "cool",
-    "spring",
-    "winter",
-    "patient",
-    "twilight",
-    "dawn",
-    "crimson",
-    "wispy",
-    "weathered",
-    "blue",
-    "billowing",
-    "broken",
-    "cold",
-    "damp",
-    "falling",
-    "frosty",
-    "green",
-    "long",
-    "late",
-    "lingering",
-    "bold",
-    "little",
-    "morning",
-    "muddy",
-    "old",
-    "red",
-    "rough",
-    "still",
-    "small",
-    "sparkling",
-    "throbbing",
-    "shy",
-    "wandering",
-    "withered",
-    "wild",
-    "black",
-    "young",
-    "holy",
-    "solitary",
-    "fragrant",
-    "aged",
-    "snowy",
-    "proud",
-    "floral",
-    "restless",
-    "divine",
-    "polished",
-    "ancient",
-    "purple",
-    "lively",
-    "nameless"
-  ];
-  const nouns = [
-    "waterfall",
-    "river",
-    "breeze",
-    "moon",
-    "rain",
-    "wind",
-    "sea",
-    "morning",
-    "snow",
-    "lake",
-    "sunset",
-    "pine",
-    "shadow",
-    "leaf",
-    "dawn",
-    "glitter",
-    "forest",
-    "hill",
-    "cloud",
-    "meadow",
-    "sun",
-    "glade",
-    "bird",
-    "brook",
-    "butterfly",
-    "bush",
-    "dew",
-    "dust",
-    "field",
-    "fire",
-    "flower",
-    "firefly",
-    "feather",
-    "grass",
-    "haze",
-    "mountain",
-    "night",
-    "pond",
-    "darkness",
-    "snowflake",
-    "silence",
-    "sound",
-    "sky",
-    "shape",
-    "surf",
-    "thunder",
-    "violet",
-    "water",
-    "wildflower",
-    "wave",
-    "water",
-    "resonance",
-    "sun",
-    "wood",
-    "dream",
-    "cherry",
-    "tree",
-    "fog",
-    "frost",
-    "voice",
-    "paper",
-    "frog",
-    "smoke",
-    "star"
-  ];
-  const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
-  const noun = nouns[Math.floor(Math.random() * nouns.length)];
-  return adjective + noun;
-}
-
+//selects a random color
 function randomColor() {
   return "#" + Math.floor(Math.random() * 0xffffff).toString(16);
 }
 
+//main hobbychat component
 class HobbyChat extends React.Component {
   state = {
     messages: [],
     member: {
-      username: randomName(),
+      username: localStorage.getItem("username"),
       color: randomColor(),
-      hobby: "birds"
+      hobby: "none"
     }
   };
 
@@ -176,21 +39,28 @@ class HobbyChat extends React.Component {
       messages.push({ member, text: data });
       this.setState({ messages });
     });
+
+    this.mutateHobby = this.mutateHobby.bind(this);
+  }
+
+  //updates the state to reflect the user's input
+  mutateHobby(newValue) {
+    console.log("HobbyChat value before change is: " + this.state.member.hobby);
+    const updatedMember = this.state.member;
+    updatedMember.hobby = newValue;
+    this.setState({ member: updatedMember });
+    console.log("HobbyChat value after change is: " + this.state.member.hobby);
   }
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          {/* <Header title="Hobby Chats" /> */}
-        </div>
+      <div className="ChatApp">
         <Messages
           messages={this.state.messages}
           currentMember={this.state.member}
-          hobby={this.state.hobby}
         />
         <Input onSendMessage={this.onSendMessage} />
-        <ChatNames />
+        <ChatNames value={this.state.hobby} mutateState={this.mutateHobby} />
       </div>
     );
   }

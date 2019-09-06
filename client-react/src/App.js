@@ -31,10 +31,10 @@ class App extends Component {
     this.handleLogin = this.handleLogin.bind(this);
 
     notification.config({
-      placement: 'topRight',
+      placement: "topRight",
       top: 70,
-      duration: 3,
-    });    
+      duration: 3
+    });
   }
 
   loadCurrentUser() {
@@ -42,17 +42,19 @@ class App extends Component {
       isLoading: true
     });
     getCurrentUser()
-    .then(response => {
-      this.setState({
-        currentUser: response,
-        isAuthenticated: true,
-        isLoading: false
+      .then(response => {
+        this.setState({
+          currentUser: response,
+          isAuthenticated: true,
+          isLoading: false
+        });
+        localStorage.setItem("username", response.username);
+      })
+      .catch(error => {
+        this.setState({
+          isLoading: false
+        });
       });
-    }).catch(error => {
-      this.setState({
-        isLoading: false
-      });  
-    });
   }
 
   componentDidMount() {
@@ -118,9 +120,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-
-
-
-
