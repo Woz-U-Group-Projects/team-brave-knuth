@@ -31,7 +31,7 @@ public class ProjectController {
       seedProject.setCreatedBy("User");
       seedProject.setName("Sam's Hobby");
       seedProject.setHobby("Fishing");
-      seedProject.setRate("10/10");
+      seedProject.setRate("9");
       projectRepository.save(seedProject);
     }
     return projectRepository.findAll();

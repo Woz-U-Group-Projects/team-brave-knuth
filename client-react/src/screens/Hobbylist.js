@@ -1,20 +1,17 @@
 /// code works with database////
 import React from "react";
 import axios from "axios";
-// import Table from 'react-bootstrap/Table';
-import { Button, ButtonGroup } from "reactstrap";
-import { Link } from "react-router-dom";
+import {ButtonGroup } from "reactstrap";
 import DeleteaHobby from './Deleteahobby';
 import  EditaHobby from './Editahobby';
+
 // import StarRatingComponent from 'react-star-rating-component';
 // import Ratingstar from './Ratingstar';
 
 class Hobbylist extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { hobbylist: [] };
-    // this.remove = this.remove.bind(this);
-    
+    this.state = { hobbylist: [] };    
   }
 
   componentDidMount() {
@@ -46,10 +43,9 @@ class Hobbylist extends React.Component {
                   </td>
                   <td>
                     <ButtonGroup key={p.id}>
-              
                     <DeleteaHobby id={p.id}/>
-                    
                     </ButtonGroup>
+                    <EditaHobby id={p.id} />
                   </td>
                 </tr>
               ))}

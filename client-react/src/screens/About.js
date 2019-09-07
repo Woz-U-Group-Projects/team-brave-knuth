@@ -11,6 +11,11 @@ class About extends React.Component {
   render() {
     return (
       <div>
+        <header class="bg-primary text-center py-5 mb-4">
+          <div class="container">
+            <h1 class="font-weight-light text-white">About Team Brave-Knuth</h1>
+          </div>
+        </header>
         <br />
         <h1 class="centered">About Team Brave-Knuth</h1>
         <div>
@@ -23,9 +28,9 @@ class About extends React.Component {
             chat with others on the chat page. This was coded by a group of
             students from Woz-U's Full Stack Web Development bootcamp course.
             We've been working on this project over the last 6 weeks and hope
-            you enjoy it! Feel free to view our code at
+            you enjoy it! Feel free to view our code at:
             <a href="https://github.com/Woz-U-Group-Projects/team-brave-knuth">
-              : github.com
+              github.com
             </a>
             .
           </h5>

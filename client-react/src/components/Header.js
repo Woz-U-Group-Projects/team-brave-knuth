@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import { BrowserRouter } from "react-router-dom";
-import "./Header.css";
+import "../styles/Header.css";
 import {
   Navbar,
   Nav,
   NavItem,
   NavLink,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  DropdownToggle
+  // DropdownMenu,
+  // DropdownItem,
+  // UncontrolledDropdown,
+  // DropdownToggle
 } from "reactstrap";
 
 export default class Header extends Component {
@@ -40,10 +40,10 @@ export default class Header extends Component {
               <NavLink href="/hobbychat">Hobby Chat</NavLink>
             </NavItem>
             <NavItem key="/about">
-              <NavLink href="/about">About</NavLink>
+              <NavLink href="/About">About</NavLink>
             </NavItem>
             <NavItem key="/logout">
-              <NavLink to="/login">Logout</NavLink>
+              <NavLink href="/logout">Logout</NavLink>
             </NavItem>
           </Navbar>
         </BrowserRouter>
@@ -52,10 +52,10 @@ export default class Header extends Component {
       navItems = [
         <BrowserRouter>
           <NavItem key="/login">
-            <NavLink to="/login">Login</NavLink>
+            <NavLink href="/login">Login</NavLink>
           </NavItem>
           <NavItem key="/signup">
-            <NavLink to="/signup">Signup</NavLink>
+            <NavLink href="/signup">Signup</NavLink>
           </NavItem>
         </BrowserRouter>
       ];
