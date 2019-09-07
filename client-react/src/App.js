@@ -11,6 +11,7 @@ import Addahobby from "./screens/Addahobby";
 import HobbyChat from "./screens/HobbyChat";
 import Signup from "./screens/Signup";
 import Login from "./screens/Login";
+import Logout from "./screens/Logout";
 import Header from "./components/Header";
 import { getCurrentUser } from "./util/APIUtils";
 
@@ -150,7 +151,7 @@ class App extends Component {
               <Route
                 path="/logout"
                 render={props => (
-                  <Login onLogout={this.handleLogout} {...props} />
+                  <Logout onLogout={this.handleLogout} {...props} />
                 )}
               ></Route>
               <Route

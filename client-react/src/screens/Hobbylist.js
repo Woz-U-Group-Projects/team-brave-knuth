@@ -3,7 +3,8 @@ import React from "react";
 import axios from "axios";
 import {ButtonGroup } from "reactstrap";
 import DeleteaHobby from './Deleteahobby';
-// import  EditaHobby from './Editahobby';
+import  EditaHobby from './Editahobby';
+
 // import StarRatingComponent from 'react-star-rating-component';
 // import Ratingstar from './Ratingstar';
 
@@ -44,7 +45,7 @@ class Hobbylist extends React.Component {
                     <ButtonGroup key={p.id}>
                     <DeleteaHobby id={p.id}/>
                     </ButtonGroup>
-                    {/* <EditaHobby id={p.id}/> */}
+                    <EditaHobby id={p.id} />
                   </td>
                 </tr>
               ))}

@@ -100,8 +100,7 @@ class Addahobby extends React.Component {
                 id="rate"
                 value={item.rate || ""}
                 onChange={this.handleChange}
-                maxlength="1"
-                oninput="this.value=this.value.replace(/[^0-10]/g"
+                maxLength="1"
                 autoComplete="hobby-level1"
               />
             </FormGroup>

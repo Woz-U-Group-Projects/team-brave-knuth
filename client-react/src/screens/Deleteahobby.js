@@ -8,15 +8,9 @@ export default class DeleteHobby extends Component {
     super(props);
     this.state = { id: '' };
   }
- 
-
-  // handleChange = event => {
-  //   this.setState({ id: event.target.value });
-  // }
 
   handleSubmit = event => {
     try {
-      //const id = this.state
       let token = localStorage.getItem(ACCESS_TOKEN);
             axios.delete(
               'http://localhost:8080/hobbylist/'+this.props.id,

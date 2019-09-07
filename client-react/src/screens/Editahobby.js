@@ -1,12 +1,10 @@
-import React from "react";
-import {withRouter } from "react-router-dom";
-// import axios from "axios";
-import { Button} from "reactstrap";
+import React, {Component} from 'react';
+import axios from 'axios';
+import { Button } from 'reactstrap';
 import { ACCESS_TOKEN } from '../constants';
-// import Ratingstar, {rating} from './Ratingstar';
-// import StarRatingComponent from 'react-star-rating-component';
 
-class Addahobby extends React.Component {
+
+export default class EditaHobby extends Component {
   emptyItem = {
     name: "",
     hobby: "",
@@ -18,52 +16,47 @@ class Addahobby extends React.Component {
     this.state = {
       item: this.emptyItem
     };
-    
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  getInitialState() {
+    return {
+          item: this.emptyItem
+    };
   }
 
-    async componentDidMount() {
-      if (this.props.match.params.id !== 'New') {
-        const hobby = await (await fetch(`/hobbylist/${this.props.match.params.id}`)).text();
-        this.setState({item: hobby});
-      }
-    };
-    
-    handleChange(event) {
-      const target = event.target;
-      const value = target.value;
-      const name = target.name;
-      let item = {...this.state.item};
-      item[name] = value;
-      this.setState({item});
-    }
-    
+  componentDidMount() {
+    axios
+      .get("http://localhost:8080/hobbylist")
+      .then(response => this.setState({ hobbylist: response.data }));
+  }
 
 
-  async handleSubmit(event) {
-    alert("Editting Hobby");
+  handleSubmit = event => {
+    alert("Edit this Hobby Now!");
+    event.preventDefault();
     const { item } = this.state;
     let token = localStorage.getItem(ACCESS_TOKEN);
-    await fetch("http://localhost:8080/hobbylist" + this.props.item, {
-      method: item.id ? "PUT" : "POST",
+    fetch("http://localhost:8080/hobbylist" + this.props.id, {
+      method: item.id ? "POST" : "PUT",
       headers: {
         "Accept": "application/json",
         "Content-Type": "application/json",
         "Authorization":"Bearer "+token,
       },
       body: JSON.stringify(item)
-    });
-    this.props.history.push("/hobbylist");
-  }
+    })
+      try{ console.log('👉 Response (Hobbyid#):', this.props.id)
+      }  catch (event) {
+            console.log(`😱 Axios request failed: ${event}`);
+         }}
 
-  
   render() {
     return (
-              <Button size="sm" type="submit" color="warning">Edit</Button>
-           
-    );
+    
+        <form onSubmit={this.handleSubmit} >
+          <Button size="sm" color="warning" type="submit">Edit</Button>
+       </form>
+     
+    )
   }
 }
 
-export default withRouter(Addahobby);
