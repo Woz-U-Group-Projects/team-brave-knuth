@@ -17,7 +17,6 @@ class About extends React.Component {
           </div>
         </header>
         <br />
-        <h1 class="centered">About Team Brave-Knuth</h1>
         <div>
           <br />
           <h3>Welcome to our website!</h3>
