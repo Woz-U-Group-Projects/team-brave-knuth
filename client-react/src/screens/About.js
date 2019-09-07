@@ -12,7 +12,7 @@ class About extends React.Component {
     return (
       <div>
         <br />
-        <h1>About Team Brave-Knuth</h1>
+        <h1 class="centered">About Team Brave-Knuth</h1>
         <div>
           <br />
           <h3>Welcome to our website!</h3>
@@ -32,8 +32,17 @@ class About extends React.Component {
           <br />
           <br />
           <h6 class="centered">
-            Samantha Wilcott - Blayne Bennett - Grace Neview - Terry Rivers -
-            Alex Jacobo
+            <div>Contact Info:</div>
+            <div>Phone: 888-888-8888</div>
+            <div>Fax: 888-888-7777</div>
+            <div>123 Main St</div>
+            <div>Nowhere, MI 49999</div>
+            <div>info@thehobbiest.com</div>
+          </h6>
+          <br />
+          <br />
+          <h6 class="centered">
+            Samantha Wilcott - Blayne Bennett - Grace Neview - Terry Rivers
           </h6>
         </div>
       </div>
