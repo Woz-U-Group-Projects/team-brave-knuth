@@ -30,7 +30,7 @@ class Hobbylist extends React.Component {
               <tr>
                 <th>Username</th>
                 <th>Hobby</th>
-                <th>Rate</th>
+                <th>Rate 0-9</th>
                 <th>Action</th>
               </tr>
             </thead>
