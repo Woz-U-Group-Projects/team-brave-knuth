@@ -55,6 +55,11 @@ class HobbyChat extends React.Component {
   render() {
     return (
       <div className="ChatApp">
+        <div>
+          <h3 class="centered">
+            Welcome to the Chatroom! Talk about your favorite hobbies below!
+          </h3>
+        </div>
         <Messages
           messages={this.state.messages}
           currentMember={this.state.member}
