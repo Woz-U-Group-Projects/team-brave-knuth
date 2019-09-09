@@ -9,19 +9,15 @@ class About extends React.Component {
   componentDidMount() {}
 
   render() {
-
-    
-    return (     
+    return (
       <div>
-
         <header class="bg-primary text-center py-5 mb-4">
           <div class="container">
             <h1 class="font-weight-light text-white">About Team Brave-Knuth</h1>
-    </div>
-  </header>
+          </div>
+        </header>
         <br />
         <div>
-          
           <br />
           <h3>Welcome to our website!</h3>
           <br />
@@ -33,24 +29,28 @@ class About extends React.Component {
             We've been working on this project over the last 6 weeks and hope
             you enjoy it! Feel free to view our code at:
             <a href="https://github.com/Woz-U-Group-Projects/team-brave-knuth">
-               github.com
+              github.com
             </a>
             .
           </h5>
           <br />
           <br />
           <h6 class="centered">
-            Samantha Wilcott - Blayne Bennett - Grace Neview - Terry Rivers -
-            Alex Jacobo
+            <div>Contact Info:</div>
+            <div>Phone: 888-888-8888</div>
+            <div>Fax: 888-888-7777</div>
+            <div>123 Main St</div>
+            <div>Nowhere, MI 49999</div>
+            <div>info@thehobbiest.com</div>
           </h6>
-
-          
+          <br />
+          <br />
+          <h6 class="centered">
+            Samantha Wilcott - Blayne Bennett - Grace Neview - Terry Rivers
+          </h6>
         </div>
-        
       </div>
-
     );
-    
   }
 }
 

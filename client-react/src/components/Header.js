@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter } from "react-router-dom";
-import "./Header.css";
+import "../styles/Header.css";
 import {
   Navbar,
   Nav,
