@@ -37,7 +37,7 @@ class Hobbylist extends React.Component {
             <tbody>
               {this.state.hobbylist.map(p => (
                 <tr key={p.id}>
-                  <td>{p.name}{p.id}</td>
+                  <td>{p.name}</td>
                   <td>{p.hobby}</td>
                   <td>{p.rate} 
                   </td>
