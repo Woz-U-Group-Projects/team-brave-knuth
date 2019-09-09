@@ -5,57 +5,13 @@ import { Link } from 'react-router-dom';
 import { ACCESS_TOKEN } from '../constants';
 
 import { Form, Input, Button, Icon, notification } from 'antd';
-const FormItem = Form.Item;
 
 class Login extends Component {
-    render() {
-        const NormalLoginForm = Form.create()(LoginForm)
-        return (
-        <div className="login-container">
-            <h1 className="page-title">Login</h1>
-            <div className="login-content">
-            <NormalLoginForm onLogin={this.props.onLogin} {...this.props} />
-            </div>
-        </div>
-            );
-        }
-    }
-class LoginForm extends Component {
     constructor(props) {
     super(props);
-    // this.state = {
-    //     username: {
-    //         value: ''
-    //     },
-    //     password: {
-    //         value: ''
-    //     }
-    // }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // handleSubmit = event => {
-    //     event.preventDefault();
-    
-    //     const loginRequest = {
-    //         username: this.state.username.value,
-    //         password: this.state.password.value
-    //     };
-    //     login(loginRequest)
-    //     .then(response => {
-    //         localStorage.setItem(ACCESS_TOKEN, response.accessToken);
-    //         notification.success({
-    //             message: 'Hobby App',
-    //             description: "Thank you! You're successfully logged in!",
-    //         });          
-    //         this.props.history.push("/hobbylist");
-    //     }).catch(error => {
-    //         notification.error({
-    //             message: 'Hobby App',
-    //             description: error.message || 'Sorry! Something went wrong. Please try again!'
-    //         });
-    //     });
-    // }
     handleSubmit(event) {
         event.preventDefault();   
         this.props.form.validateFields((err, values) => {
@@ -71,12 +27,7 @@ class LoginForm extends Component {
                             message: 'Hobby App',
                             description: 'Your Username or Password is incorrect. Please try again!'
                         });                    
-                    // } else {
-                    //     notification.error({
-                    //         message: 'Hobby App',
-                    //         description: error.message || 'Sorry! Something went wrong. Please try again!'
-                    //     });                                            
-                    }
+                    } 
                 });
             }
         });
@@ -85,8 +36,11 @@ class LoginForm extends Component {
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
+            [
+            <NormalLoginForm onLogin={this.props.onLogin} {...this.props} />
+           ],
             <Form onSubmit={this.handleSubmit} className="login-form">
-                <FormItem>
+                <Form.Item>
                     {getFieldDecorator('usernameOrEmail', {
                         rules: [{ required: true, message: 'Please input your username or email!' }],
                     })(
@@ -96,8 +50,8 @@ class LoginForm extends Component {
                         name="usernameOrEmail" 
                         placeholder="Username or Email" />    
                     )}
-                </FormItem>
-                <FormItem>
+                </Form.Item>
+                <Form.Item>
                 {getFieldDecorator('password', {
                     rules: [{ required: true, message: 'Please input your Password!' }],
                 })(
@@ -108,18 +62,18 @@ class LoginForm extends Component {
                         type="password" 
                         placeholder="Password"  />                        
                 )}
-                </FormItem>
-                <FormItem>
+                </Form.Item>
+                <Form.Item>
                     <Button type="primary" htmlType="submit" size="large" className="login-form-button">Login</Button>
                     Or <Link to="/signup">register now!</Link>
-                </FormItem>
+                </Form.Item>
             </Form>
         );
     }
 }
 
-
-export default Login;
+const NormalLoginForm = Form.create()(Login)
+export default NormalLoginForm;
 
 
 
