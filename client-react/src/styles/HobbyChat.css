@@ -5,6 +5,10 @@
   min-height: 75vh;
 }
 
+.centered {
+  text-align: center;
+}
+
 /* .App-header {
   background-color: #262626;
   overflow: visible;
