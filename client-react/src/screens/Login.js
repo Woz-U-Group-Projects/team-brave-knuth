@@ -3,6 +3,7 @@ import { login } from '../util/APIUtils';
 import '../styles/Login.css';
 import { Link } from 'react-router-dom';
 import { ACCESS_TOKEN } from '../constants';
+import { Row, Col } from 'react-bootstrap';
 
 import { Form, Input, Button, Icon, notification } from 'antd';
 
@@ -34,11 +35,15 @@ class Login extends Component {
     }
 
     render() {
+        
         const { getFieldDecorator } = this.props.form;
         return (
             [
             <NormalLoginForm onLogin={this.props.onLogin} {...this.props} />
            ],
+           <div className="form-flex">
+            <Row>
+            <Col md={{ span: 3, offset: 3 }}>
             <Form onSubmit={this.handleSubmit} className="login-form">
                 <Form.Item>
                     {getFieldDecorator('usernameOrEmail', {
@@ -68,6 +73,26 @@ class Login extends Component {
                     Or <Link to="/signup">register now!</Link>
                 </Form.Item>
             </Form>
+            </Col>
+            </Row>
+            <Row>
+            <Col sm={4}>
+                <div className="theBox">
+                    This is an entry way!
+                </div>
+            </Col>
+            <Col sm={4}>
+                <div className="theBox">
+                    Also an entry way!
+                </div>
+            </Col>
+            <Col sm={4}>
+                <div className="theBox">
+                    Also also an entry way!
+                </div>   
+            </Col>
+            </Row>
+            </div>
         );
     }
 }

@@ -18,3 +18,16 @@
   .login-form-button {
     width: 100%;
   }
+
+.theBox{
+  max-width: 200px;
+  margin: 10px;
+  padding: 10px;
+  border-style: solid;
+  border-color: black;
+  background-color: lightskyblue;
+}
+
+#form-flex{
+  padding: 10px;
+}
