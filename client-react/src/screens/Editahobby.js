@@ -54,7 +54,7 @@ export default class Editahobby extends React.Component {
         <Container>
         <Form onSubmit={this.handleSubmit}>
             <FormGroup>
-              <Label for="name">Name</Label>
+              {/* <Label for="name">Name</Label>
               <Input
                 type="text"
                 name="name"
@@ -62,7 +62,7 @@ export default class Editahobby extends React.Component {
                  value={this.state.id.name}
                  onChange={this.handleChange}
                 autoComplete="name"
-              />
+              /> */}
                <Label for="hobby">Hobby</Label>
                <Input
                 type="text"
@@ -71,6 +71,7 @@ export default class Editahobby extends React.Component {
                 value={this.state.id.hobby}
                 onChange={this.handleChange}
                 autoComplete="hobby"
+                autoFocus={true}
               />
                <Label for="rate">Rate</Label>
                <Input

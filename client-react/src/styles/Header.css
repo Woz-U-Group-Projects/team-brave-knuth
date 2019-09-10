@@ -13,13 +13,13 @@
     text-decoration: none;
   }
   
-  .app-header {
+  /* .app-header {
     position: fixed;
     width: 100%;
     box-shadow: 0 2px 8px #f0f1f2;
     z-index: 10;
     padding: 0;
-  }
+  } */
   
   .app-menu {
     float: right;
@@ -31,7 +31,8 @@
 
   .app-menu > li > a {
     padding: 0 20px;
-    margin: 0 -20px;
+    margin: 20px;
+    max-width:900px;
   }
 
   .app-menu > li > a > i {
@@ -69,19 +70,23 @@
   .poll-icon {
     margin-top: -4px;
   }
-
+/* 
 @media (max-width: 768px) {
   .app-title a {
     font-size: 20px;
-  }
+  } */
 
   .app-menu > li {
     padding: 0 15px;
   }
 
   .app-menu > li > a {
-    padding: 0 15px;
+    padding: 0px;
     margin: 0 -15px;
   }
-}  
 
+
+
+.header{
+  padding: 5px;
+}

@@ -10,9 +10,9 @@ class About extends React.Component {
 
   render() {
     return (
-      <div>
-        <header className="bg-primary text-center py-5 mb-4">
-          <div className="container">
+      <div className="container-1">
+        <header className="bg-primary text-center py-3 mb-3">
+          <div className="container-2">
             <h1 className="font-weight-light text-white">
               About Team Brave-Knuth
             </h1>
