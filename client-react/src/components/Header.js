@@ -5,7 +5,7 @@ import {
   Navbar,
   Nav,
   NavItem,
-  NavLink,
+  NavLink
   // DropdownMenu,
   // DropdownItem,
   // UncontrolledDropdown,
@@ -26,6 +26,7 @@ export default class Header extends Component {
 
   render() {
     let navItems;
+    let username;
     if (this.props.currentUser) {
       navItems = [
         <BrowserRouter>
@@ -48,6 +49,7 @@ export default class Header extends Component {
           </Navbar>
         </BrowserRouter>
       ];
+      username = localStorage.getItem("username");
     } else {
       navItems = [
         <BrowserRouter>
@@ -59,6 +61,7 @@ export default class Header extends Component {
           </NavItem>
         </BrowserRouter>
       ];
+      username = "Please log in.";
     }
 
     return (
@@ -66,6 +69,7 @@ export default class Header extends Component {
         <div className="app-title">
           <NavLink href="/hobbylist">
             <h1> Hobby-App </h1>
+            <h5>{username}</h5>
           </NavLink>
         </div>
         <Nav mode="horizontal" style={{ lineHeight: "40px" }}>
