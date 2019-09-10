@@ -1,6 +1,7 @@
 .container,
-.container-fluid {
-  margin-top: 20px;
+.container-2 {
+  margin: 10px;
+  padding:20px;
 }
 
 .centered {

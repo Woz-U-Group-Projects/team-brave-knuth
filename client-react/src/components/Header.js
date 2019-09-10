@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter } from "react-router-dom";
 import "../styles/Header.css";
+import logo from '../images/hobbylogo.png';
 import {
   Navbar,
   Nav,
@@ -25,6 +26,7 @@ export default class Header extends Component {
   }
 
   render() {
+   
     let navItems;
     let username;
     if (this.props.currentUser) {
@@ -65,7 +67,9 @@ export default class Header extends Component {
     }
 
     return (
+      
       <div className="container">
+         <img src={logo} alt="Logo" width="5%" align="left"/>
         <div className="app-title">
           <NavLink href="/hobbylist">
             <h1> Hobby-App </h1>

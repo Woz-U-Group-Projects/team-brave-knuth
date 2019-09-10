@@ -22,8 +22,15 @@ class Hobbylist extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <h2> Hobby List</h2>
+      <div className="container-1">
+      <header className="bg-primary text-center py-3 mb-3">
+          <div className="container-2">
+            <h1 className="font-weight-light text-white">
+              Hobby List
+            </h1>
+          </div>
+        </header>
+      
         <div className="panel panel-default p50 uth-panel">
           <table className="table table-hover">
             <thead>
