@@ -28,7 +28,7 @@ class Hobbylist extends React.Component {
           <table className="table table-hover">
             <thead>
               <tr>
-                <th>Username</th>
+               
                 <th>Hobby</th>
                 <th>Rate 0-9</th>
                 <th>Action</th>
@@ -37,7 +37,6 @@ class Hobbylist extends React.Component {
             <tbody>
               {this.state.hobbylist.map(p => (
                 <tr key={p.id}>
-                  <td>{p.name}</td>
                   <td>{p.hobby}</td>
                   <td>{p.rate} 
                   </td>

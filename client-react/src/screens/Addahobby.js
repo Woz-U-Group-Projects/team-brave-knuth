@@ -64,7 +64,7 @@ class Addahobby extends React.Component {
         <Container>
           {title}
           <Form onSubmit={this.handleSubmit}>
-            <FormGroup>
+            {/* <FormGroup>
               <Label for="name">Name</Label>
               <Input
               placeholder="Rodger"
@@ -75,7 +75,7 @@ class Addahobby extends React.Component {
                 onChange={this.handleChange}
                 autoComplete="name"
               />
-            </FormGroup>
+            </FormGroup> */}
             <FormGroup>
               <Label for="hobby">Hobby</Label>
               <Input
