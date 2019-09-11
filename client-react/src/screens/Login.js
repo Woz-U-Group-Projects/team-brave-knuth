@@ -56,6 +56,7 @@ class Login extends Component {
 
     render() {
         return (
+        <div className="login-container">
            <div className="form-flex">
             <Form onSubmit={this.handleSubmit} className="login-form">
                 <FormGroup>
@@ -86,6 +87,7 @@ class Login extends Component {
                 </FormGroup>
             </Form>
             </div>
+        </div>
         );
     }
 }
