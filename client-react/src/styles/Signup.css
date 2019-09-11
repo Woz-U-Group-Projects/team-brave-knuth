@@ -4,9 +4,8 @@
     margin-top: 40px;    
 }
 
-.signup-form-button {
-    width: 100%;
-    margin-top: 15px;
+.signup-form{
+    max-width: 800px;
 }
 
 .signup-form-button[disabled], .signup-form-button[disabled]:hover, .signup-form-button[disabled]:focus {
@@ -18,4 +17,6 @@
 
 .signup-form input {
     margin-bottom: 3px;
+    max-width: 600px;
 }
+

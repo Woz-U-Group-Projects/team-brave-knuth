@@ -27,6 +27,10 @@ export default class Header extends Component {
       navItems = [
         <BrowserRouter>
           <Navbar color="light" light expand="md">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <NavItem key="/hobbylist">
               <NavLink href="/hobbylist">Hobby List</NavLink>
             </NavItem>
@@ -42,6 +46,7 @@ export default class Header extends Component {
             <NavItem key="/logout">
               <NavLink href="/logout">Logout</NavLink>
             </NavItem>
+            </div>
           </Navbar>
         </BrowserRouter>
       ];
@@ -61,7 +66,7 @@ export default class Header extends Component {
     return (
       <div className="container">
         <div className="app-title">
-          <NavLink href="/">
+          <NavLink href="/hobbylist">
             <h1> Hobby-App </h1>
           </NavLink>
         </div>

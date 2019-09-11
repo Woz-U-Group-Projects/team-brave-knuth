@@ -9,8 +9,8 @@ import {
     PASSWORD_MIN_LENGTH, PASSWORD_MAX_LENGTH
 } from '../constants';
 
-import { Row, Col } from 'react-bootstrap';
-import { Form, Input, Button, notification } from 'antd';
+import { Form, notification } from 'antd';
+import { Button, FormGroup, Label, Input, Container, Row, Col } from 'reactstrap';
 
 // const FormItem = Form.Item;
 
@@ -88,73 +88,34 @@ class Signup extends Component {
             <div className="signup-container">
                 <h1 className="page-title">Sign Up</h1>
                 <div className="signup-content">
-                   <Row>
-                   <Col md={{ span: 6, offset: 3 }}>
+                    <Container>
                     <Form onSubmit={this.handleSubmit} className="signup-form">
-                        <Form.Item 
-                            label="Full Name"
-                            validateStatus={this.state.name.validateStatus}
-                            help={this.state.name.errorMsg}>
-                            <Input 
-                                size="large"
-                                name="name"
-                                autoComplete="off"
-                                placeholder="Your full name"
-                                value={this.state.name.value} 
-                                onChange={(event) => this.handleInputChange(event, this.validateName)} />    
-                        </Form.Item>
-                        <Form.Item label="Username"
-                            hasFeedback
-                            validateStatus={this.state.username.validateStatus}
-                            help={this.state.username.errorMsg}>
-                            <Input 
-                                size="large"
-                                name="username" 
-                                autoComplete="off"
-                                placeholder="A unique username"
-                                value={this.state.username.value} 
-                                onBlur={this.validateUsernameAvailability}
-                                onChange={(event) => this.handleInputChange(event, this.validateUsername)} />    
-                        </Form.Item>
-                        <Form.Item 
-                            label="Email"
-                            hasFeedback
-                            validateStatus={this.state.email.validateStatus}
-                            help={this.state.email.errorMsg}>
-                            <Input 
-                                size="large"
-                                name="email" 
-                                type="email" 
-                                autoComplete="off"
-                                placeholder="Your email"
-                                value={this.state.email.value} 
-                                onBlur={this.validateEmailAvailability}
-                                onChange={(event) => this.handleInputChange(event, this.validateEmail)} />    
-                        </Form.Item>
-                        <Form.Item 
-                            label="Password"
-                            validateStatus={this.state.password.validateStatus}
-                            help={this.state.password.errorMsg}>
-                            <Input 
-                                size="large"
-                                name="password" 
-                                type="password"
-                                autoComplete="off"
-                                placeholder="A password between 6 to 20 characters" 
-                                value={this.state.password.value} 
-                                onChange={(event) => this.handleInputChange(event, this.validatePassword)} />    
-                        </Form.Item>
-                        <Form.Item>
-                            <Button type="primary" 
-                                htmlType="submit" 
-                                size="large" 
-                                className="signup-form-button"
-                                disabled={this.isFormInvalid()}>Sign up</Button>
+                        <FormGroup validateStatus={this.state.name.validateStatus} help={this.state.name.errorMsg}>
+                            <Label for="name" className="mr-sm-2">Full name</Label>
+                            <Input type="name" name="name" value={this.state.name.value} 
+                            onChange={(event) => this.handleInputChange(event, this.validateName)} />   
+                        </FormGroup>
+                        <FormGroup validateStatus={this.state.username.validateStatus} help={this.state.username.errorMsg}>
+                            <Label for="username" className="mr-sm-2">Username</Label>
+                            <Input type="username" name="username" value={this.state.username.value} 
+                            onChange={(event) => this.handleInputChange(event, this.validateName)} />   
+                        </FormGroup>
+                        <FormGroup validateStatus={this.state.email.validateStatus} help={this.state.email.errorMsg}>
+                            <Label for="email" className="mr-sm-2">Email</Label>
+                            <Input type="email" name="email" value={this.state.email.value} 
+                            onChange={(event) => this.handleInputChange(event, this.validateName)} />   
+                        </FormGroup>
+                        <FormGroup validateStatus={this.state.password.validateStatus} help={this.state.password.errorMsg}>
+                            <Label for="password" className="mr-sm-2">Password</Label>
+                            <Input type="password" name="password" value={this.state.password.value} 
+                            onChange={(event) => this.handleInputChange(event, this.validateName)} />   
+                        </FormGroup>
+                        <FormGroup>
+                            <Button type="primary" className="signup-form-button" disabled={this.isFormInvalid()}>Sign up</Button>
                             Already registed? <Link to="/login">Login now!</Link>
-                        </Form.Item>
+                        </FormGroup>
                     </Form>
-                    </Col>
-                    </Row>
+                    </Container>
                 </div>
             </div>
         );

@@ -3,12 +3,9 @@ import { login } from '../util/APIUtils';
 import '../styles/Login.css';
 import { Link } from 'react-router-dom';
 import { ACCESS_TOKEN } from '../constants';
-import { Row, Col } from 'react-bootstrap';
-// import garden from '../images/garden.jpg';
-// import skiing from '../images/skiiig.jpg';
-// import hobby from '../images/hobby-icon.jpg';
+import { Button, FormGroup, Label, Input, Col, Row } from 'reactstrap';
 
-import { Form, Input, Button, notification } from 'antd';
+import { Form, notification } from 'antd';
 
 class Login extends Component {
     constructor(props) {
@@ -60,62 +57,38 @@ class Login extends Component {
     render() {
         return (
            <div className="form-flex">
-            <Row>
-            <Col md={{ span: 3, offset: 3 }}>
             <Form onSubmit={this.handleSubmit} className="login-form">
-                <Form.Item
-                label="Username">  
-                <Input 
-                    size="large"
-                    name="username"
-                    autoComplete="off"
-                    placeholder="Your username"
-                    value={this.state.username.value} 
-                    onChange={(event) => this.handleInputChange(event)} />    
-                </Form.Item>
-                <Form.Item
-                label="Password">
-                <Input 
-                    size="large"
-                    name="password" 
-                    type="password"
-                    autoComplete="off"
-                    placeholder="Your Password" 
-                    value={this.state.password.value} 
-                    onChange={(event) => this.handleInputChange(event)} />    
-                </Form.Item>
-                <Form.Item>
-                    <Button type="primary" htmlType="submit" size="large" className="login-form-button">Login</Button>
+                <FormGroup>
+                <Row>
+                <Col sm={10}>
+                    <Label for="usernameOrEmail" className="mr-sm-2">Username Or Email</Label>
+                    <Input type="username" name="usernameOrEmail" value={this.state.usernameOrEmail.value} 
+                    onChange={(event) => this.handleInputChange(event)} />
+                </Col>
+                </Row>
+                </FormGroup>
+                <FormGroup>
+                <Row>
+                <Col sm={10}>
+                    <Label for="password" className="mr-sm-2">Password</Label>
+                    <Input type="password" name="password" value={this.state.password.value} 
+                    onChange={(event) => this.handleInputChange(event)} />
+                </Col>
+                </Row>
+                </FormGroup>
+                <FormGroup>
+                <Row>
+                <Col sm={10}>
+                    <Button type="primary" htmlType="submit"  className="login-form-button">Login</Button>
                     Or <Link to="/signup">register now!</Link>
-                </Form.Item>
+                </Col>
+                </Row>
+                </FormGroup>
             </Form>
-            </Col>
-            </Row>
-            <Row>
-            <Col sm={4}>
-                <div className="theBox">
-                    {/* We help make connecting with like minded individuals easier
-                    <img src={garden} alt='garden' /> */}
-                </div>
-            </Col>
-            <Col sm={4}>
-                <div className="theBox">
-                    {/* No matter your hobby
-                    <img src={hobby} alt='garden' /> */}
-                </div>
-            </Col>
-            <Col sm={4}>
-                <div className="theBox">
-                    {/* Login to get started on your journey
-                    <img src={skiing} alt='garden' /> */}
-                </div>   
-            </Col>
-            </Row>
             </div>
         );
     }
 }
-
 
 export default Login;
 
