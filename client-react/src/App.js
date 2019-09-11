@@ -11,12 +11,12 @@ import Addahobby from "./screens/Addahobby";
 import HobbyChat from "./screens/HobbyChat";
 import Signup from "./screens/Signup";
 import Login from "./screens/Login";
-import Logout from "./screens/Logout";
+import Logout from './components/Logout';
 import Header from "./components/Header";
 import { getCurrentUser } from "./util/APIUtils";
 
 import { Layout, notification } from 'antd';
-import Logout from './components/Logout';
+
 const { Content } = Layout;
 
 class App extends Component {

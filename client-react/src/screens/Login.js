@@ -14,7 +14,7 @@ class Login extends Component {
     constructor(props) {
     super(props);
     this.state = {
-        username: {
+        usernameOrEmail: {
             value: ''
         },
         password: {
@@ -42,7 +42,7 @@ class Login extends Component {
         event.preventDefault();   
 
         const loginRequest = {
-            username: this.state.username.value,
+            usernameOrEmail: this.state.usernameOrEmail.value,
             password: this.state.password.value
         };
         login(loginRequest)
@@ -116,8 +116,12 @@ class Login extends Component {
     }
 }
 
-// const NormalLoginForm = Form.create()(Login)
+
 export default Login;
+
+
+
+
 
 
 
