@@ -28,7 +28,7 @@ class App extends Component {
     }
     
     this.loadCurrentUser = this.loadCurrentUser.bind(this);
-    this.handleLogin = this.handleLogin.bind(this);
+    // this.handleLogin = this.handleLogin.bind(this);
 
     notification.config({
       placement: "topRight",
@@ -64,15 +64,15 @@ class App extends Component {
     }
   }
 
-    handleLogin() {
-      notification.success({
-        message: 'Hobby App',
-        description: "You're successfully logged in.",
-      });
+    // handleLogin() {
+    //   notification.success({
+    //     message: 'Hobby App',
+    //     description: "You're successfully logged in.",
+    //   });
 
-      this.loadCurrentUser();
-      this.props.history.push("/hobbylist");
-    }
+    //   this.loadCurrentUser();
+    //   this.props.history.push("/hobbylist");
+    // }
     
   render() {  
     if(this.state.isLoading) {
@@ -105,10 +105,10 @@ class App extends Component {
                   currentUser={this.state.currentUser} handleLogout={this.handleLogout} {...props} />}>
                 </Route>
                 <Route path="/logout" component={Logout}></Route>
-                <Route path="/login" 
+                {/* <Route path="/login" 
                   render={(props) => <Login onLogin={this.handleLogin} {...props} />}>  
-                </Route>
-                {/* <Route path="/login" component={Login}></Route> */}
+                </Route> */}
+                <Route path="/login" component={Login}></Route>
                 <Route path="/signup" component={Signup}></Route>
                 </Switch>    
           </BrowserRouter>

@@ -9,8 +9,10 @@ import {
     PASSWORD_MIN_LENGTH, PASSWORD_MAX_LENGTH
 } from '../constants';
 
+import { Row, Col } from 'react-bootstrap';
 import { Form, Input, Button, notification } from 'antd';
-const FormItem = Form.Item;
+
+// const FormItem = Form.Item;
 
 class Signup extends Component {
     constructor(props) {
@@ -86,8 +88,10 @@ class Signup extends Component {
             <div className="signup-container">
                 <h1 className="page-title">Sign Up</h1>
                 <div className="signup-content">
+                   <Row>
+                   <Col md={{ span: 6, offset: 3 }}>
                     <Form onSubmit={this.handleSubmit} className="signup-form">
-                        <FormItem 
+                        <Form.Item 
                             label="Full Name"
                             validateStatus={this.state.name.validateStatus}
                             help={this.state.name.errorMsg}>
@@ -98,8 +102,8 @@ class Signup extends Component {
                                 placeholder="Your full name"
                                 value={this.state.name.value} 
                                 onChange={(event) => this.handleInputChange(event, this.validateName)} />    
-                        </FormItem>
-                        <FormItem label="Username"
+                        </Form.Item>
+                        <Form.Item label="Username"
                             hasFeedback
                             validateStatus={this.state.username.validateStatus}
                             help={this.state.username.errorMsg}>
@@ -111,8 +115,8 @@ class Signup extends Component {
                                 value={this.state.username.value} 
                                 onBlur={this.validateUsernameAvailability}
                                 onChange={(event) => this.handleInputChange(event, this.validateUsername)} />    
-                        </FormItem>
-                        <FormItem 
+                        </Form.Item>
+                        <Form.Item 
                             label="Email"
                             hasFeedback
                             validateStatus={this.state.email.validateStatus}
@@ -126,8 +130,8 @@ class Signup extends Component {
                                 value={this.state.email.value} 
                                 onBlur={this.validateEmailAvailability}
                                 onChange={(event) => this.handleInputChange(event, this.validateEmail)} />    
-                        </FormItem>
-                        <FormItem 
+                        </Form.Item>
+                        <Form.Item 
                             label="Password"
                             validateStatus={this.state.password.validateStatus}
                             help={this.state.password.errorMsg}>
@@ -139,16 +143,18 @@ class Signup extends Component {
                                 placeholder="A password between 6 to 20 characters" 
                                 value={this.state.password.value} 
                                 onChange={(event) => this.handleInputChange(event, this.validatePassword)} />    
-                        </FormItem>
-                        <FormItem>
+                        </Form.Item>
+                        <Form.Item>
                             <Button type="primary" 
                                 htmlType="submit" 
                                 size="large" 
                                 className="signup-form-button"
                                 disabled={this.isFormInvalid()}>Sign up</Button>
                             Already registed? <Link to="/login">Login now!</Link>
-                        </FormItem>
+                        </Form.Item>
                     </Form>
+                    </Col>
+                    </Row>
                 </div>
             </div>
         );

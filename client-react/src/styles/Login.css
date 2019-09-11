@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Staatliches&display=swap');
+
 .login-container {
     max-width: 420px;
     margin: 0 auto;
-    margin: 0 auto;
     margin-top: 40px;
+  
 }
 
 .login-form-button {
@@ -22,12 +24,20 @@
 .theBox{
   max-width: 200px;
   margin: 10px;
-  padding: 10px;
-  border-style: solid;
-  border-color: black;
-  background-color: lightskyblue;
+  /* padding: 20px;
+  font-family: 'Staatliches', cursive;
+  font-size: 20px;
+  background-image: linear-gradient(to right, rgba(255,0,0,0), #FF4500);
+  text-align: center; */
+ 
 }
 
 #form-flex{
   padding: 10px;
+  background-color: aqua;
+}
+
+img{
+  height: 200px;
+  width: 250px;
 }
