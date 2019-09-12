@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter } from "react-router-dom";
 import "../styles/Header.css";
+import logo from '../images/hobbylogo.png';
 import {
   Navbar,
   Nav,
@@ -24,7 +25,9 @@ export default class Header extends Component {
   }
 
   render() {
+   
     let navItems;
+    let username;
     if (this.props.currentUser) {
       navItems = [
         <BrowserRouter>
@@ -54,6 +57,7 @@ export default class Header extends Component {
           </Navbar>
         </BrowserRouter>
       ];
+      username = localStorage.getItem("username");
     } else {
       navItems = [
         <BrowserRouter>
@@ -67,13 +71,17 @@ export default class Header extends Component {
           </Nav>
         </BrowserRouter>
       ];
+      username = "Please log in.";
     }
 
     return (
+      
       <div className="container">
+         <img src={logo} alt="Logo" width="5%" align="left"/>
         <div className="app-title">
           <NavLink href="/hobbylist">
-            <h1> The Hobbyist </h1>
+           <h1> The Hobbyist </h1>
+            <h5>{username}</h5>
           </NavLink>
         </div>
         <Nav mode="horizontal" style={{ lineHeight: "40px" }}>

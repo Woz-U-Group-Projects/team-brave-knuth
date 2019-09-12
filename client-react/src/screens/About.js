@@ -10,10 +10,12 @@ class About extends React.Component {
 
   render() {
     return (
-      <div>
-        <header class="bg-primary text-center py-5 mb-4">
-          <div class="container">
-            <h1 class="font-weight-light text-white">About Team Brave-Knuth</h1>
+      <div className="container-1">
+        <header className="bg-primary text-center py-3 mb-3">
+          <div className="container-2">
+            <h1 className="font-weight-light text-white">
+              About Team Brave-Knuth
+            </h1>
           </div>
         </header>
         <br />
@@ -35,7 +37,7 @@ class About extends React.Component {
           </h5>
           <br />
           <br />
-          <h6 class="centered">
+          <h6 className="centered">
             <div>Contact Info:</div>
             <div>Phone: 888-888-8888</div>
             <div>Fax: 888-888-7777</div>
@@ -45,7 +47,7 @@ class About extends React.Component {
           </h6>
           <br />
           <br />
-          <h6 class="centered">
+          <h6 className="centered">
             Samantha Wilcott - Blayne Bennett - Grace Neview - Terry Rivers
           </h6>
         </div>

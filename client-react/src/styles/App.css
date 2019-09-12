@@ -4,6 +4,12 @@
   max-width: 100%;
 }
 
+.container-2 {
+  margin: 10px;
+  padding:20px;
+
+}
+
 .centered {
   text-align: center;
 }

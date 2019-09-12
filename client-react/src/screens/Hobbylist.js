@@ -22,22 +22,28 @@ class Hobbylist extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <h2> Hobby List</h2>
+      <div className="container-1">
+      <header className="bg-primary text-center py-3 mb-3">
+          <div className="container-2">
+            <h1 className="font-weight-light text-white">
+              Hobby List
+            </h1>
+          </div>
+        </header>
+      
         <div className="panel panel-default p50 uth-panel">
           <table className="table table-hover">
             <thead>
               <tr>
-                <th>Username</th>
+               
                 <th>Hobby</th>
-                <th>Rate</th>
+                <th>Rate 0-9</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
               {this.state.hobbylist.map(p => (
                 <tr key={p.id}>
-                  <td>{p.name}{p.id}</td>
                   <td>{p.hobby}</td>
                   <td>{p.rate} 
                   </td>

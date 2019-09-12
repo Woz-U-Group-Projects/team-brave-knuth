@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/HobbyChat.css";
 import Messages from "../components/Messages";
 import Input from "../components/Input";
-import ChatNames from "../components/ChatNames";
+// import ChatNames from "../components/ChatNames";
 
 //selects a random color
 function randomColor() {
@@ -40,23 +40,30 @@ class HobbyChat extends React.Component {
       this.setState({ messages });
     });
 
-    this.mutateHobby = this.mutateHobby.bind(this);
+    // this.mutateHobby = this.mutateHobby.bind(this);
   }
 
   //updates the state to reflect the user's input
-  mutateHobby(newValue) {
-    console.log("HobbyChat value before change is: " + this.state.member.hobby);
-    const updatedMember = this.state.member;
-    updatedMember.hobby = newValue;
-    this.setState({ member: updatedMember });
-    console.log("HobbyChat value after change is: " + this.state.member.hobby);
-  }
+  // mutateHobby(newValue) {
+  //   console.log("HobbyChat value before change is: " + this.state.member.hobby);
+  //   const updatedMember = this.state.member;
+  //   updatedMember.hobby = newValue;
+  //   this.setState({ member: updatedMember });
+  //   console.log("HobbyChat value after change is: " + this.state.member.hobby);
+  // }
 
   render() {
     return (
       <div className="ChatApp">
-        <div>
-          <h3 class="centered">
+         <div className="container-1">
+      <header className="bg-primary text-center py-3 mb-3">
+          <div className="container-2">
+            <h1 className="font-weight-light text-white">
+              Hobby Chats
+            </h1>
+          </div>
+        </header>
+          <h3 className="centered">
             Welcome to the Chatroom! Talk about your favorite hobbies below!
           </h3>
         </div>
@@ -65,7 +72,7 @@ class HobbyChat extends React.Component {
           currentMember={this.state.member}
         />
         <Input onSendMessage={this.onSendMessage} />
-        <ChatNames value={this.state.hobby} mutateState={this.mutateHobby} />
+        {/* <ChatNames value={this.state.hobby} mutateState={this.mutateHobby} /> */}
       </div>
     );
   }

@@ -60,11 +60,18 @@ class Addahobby extends React.Component {
     const { item } = this.state;
     const title = <h2>{item.id ? "Edit Hobby" : "Add a Hobby"}</h2>;
     return (
-      <div>
+      <div className="container-1">
+      <header className="bg-primary text-center py-3 mb-3">
+          <div className="container-2">
+            <h1 className="font-weight-light text-white">
+              Add a Hobby
+            </h1>
+          </div>
+        </header>
         <Container>
-          {title}
+         
           <Form onSubmit={this.handleSubmit}>
-            <FormGroup>
+            {/* <FormGroup>
               <Label for="name">Name</Label>
               <Input
               placeholder="Rodger"
@@ -75,7 +82,7 @@ class Addahobby extends React.Component {
                 onChange={this.handleChange}
                 autoComplete="name"
               />
-            </FormGroup>
+            </FormGroup> */}
             <FormGroup>
               <Label for="hobby">Hobby</Label>
               <Input
@@ -89,7 +96,7 @@ class Addahobby extends React.Component {
               />
             </FormGroup>
             <FormGroup>
-              <Label for="rate">Rate Out of 9</Label>
+              <Label for="rate">Rate 0-9</Label>
               {/* <Ratingstar/> */}
 
               {/* this input works, trying to get stars */}
