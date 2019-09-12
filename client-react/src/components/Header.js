@@ -7,10 +7,6 @@ import {
   Nav,
   NavItem,
   NavLink
-  // DropdownMenu,
-  // DropdownItem,
-  // UncontrolledDropdown,
-  // DropdownToggle
 } from "reactstrap";
 
 export default class Header extends Component {
@@ -23,6 +19,9 @@ export default class Header extends Component {
     if (key === "logout") {
       this.props.onLogout();
     }
+    if (key === "login") {
+      this.props.onLogin();
+    }
   }
 
   render() {
@@ -33,6 +32,11 @@ export default class Header extends Component {
       navItems = [
         <BrowserRouter>
           <Navbar color="light" light expand="md">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <Nav className="ml-auto">
             <NavItem key="/hobbylist">
               <NavLink href="/hobbylist">Hobby List</NavLink>
             </NavItem>
@@ -48,6 +52,8 @@ export default class Header extends Component {
             <NavItem key="/logout">
               <NavLink href="/logout">Logout</NavLink>
             </NavItem>
+            </Nav>
+            </div>
           </Navbar>
         </BrowserRouter>
       ];
@@ -55,12 +61,14 @@ export default class Header extends Component {
     } else {
       navItems = [
         <BrowserRouter>
+        <Nav className="ml-auto">
           <NavItem key="/login">
             <NavLink href="/login">Login</NavLink>
           </NavItem>
           <NavItem key="/signup">
             <NavLink href="/signup">Signup</NavLink>
           </NavItem>
+          </Nav>
         </BrowserRouter>
       ];
       username = "Please log in.";
@@ -72,7 +80,7 @@ export default class Header extends Component {
          <img src={logo} alt="Logo" width="5%" align="left"/>
         <div className="app-title">
           <NavLink href="/hobbylist">
-            <h1> Hobby-App </h1>
+           <h1> The Hobbyist </h1>
             <h5>{username}</h5>
           </NavLink>
         </div>
@@ -83,30 +91,3 @@ export default class Header extends Component {
     );
   }
 }
-
-// function ProfileDropdownMenu(props) {
-// const dropdownMenu = (
-//      <Nav onClick={props.handleMenuClick} className="profile-dropdown-menu">
-//        <Nav.Item key="user-info" className="dropdown-item" disabled>
-//          <div className="user-full-name-info">
-//            {props.currentUser.name}
-//          </div>
-//          <div className="username-info">
-//            @{props.currentUser.username}
-//          </div>
-//        </Nav.Item>
-//        <DropdownItem divider/>
-//        <Nav.Item key="logout" className="dropdown-item">
-//          Logout
-//        </Nav.Item>
-//      </Nav>
-// );
-
-//    return (
-//      <DropdownMenu overlay={dropdownMenu} trigger={['click']} getPopupContainer = { () => document.getElementsByClassName('profile-menu')[0]}>
-//         Menu
-//      </DropdownMenu>
-//    );
-//  }
-
-//export default Header;
