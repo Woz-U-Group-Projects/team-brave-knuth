@@ -1,47 +1,44 @@
 .signup-container {
-    max-width: 100%;
-    
-    
+  max-width: 100%;
 }
 
-.signup-form{
-    max-width: 100%;
+.signup-form {
+  max-width: 100%;
 }
 
-.signup-form-button[disabled], .signup-form-button[disabled]:hover, .signup-form-button[disabled]:focus {
-    opacity: 0.6;
-    color: #fff;
-    background-color: #1890ff;
-    border-color: #1890ff;
+.signup-form-button[disabled],
+.signup-form-button[disabled]:hover,
+.signup-form-button[disabled]:focus {
+  opacity: 0.6;
+  color: #fff;
+  background-color: #1890ff;
+  border-color: #1890ff;
 }
 
 .signup-form input {
-    margin-top: 60px;
-    margin-bottom: 10px;
-    max-width: 600px;
-  
+  margin-top: 60px;
+  margin-bottom: 10px;
+  max-width: 600px;
 }
 
 .signup-form button {
-    width: 125px;
-    margin-top: 65px;
-    text-align: center;
-    display: block;
-    margin: 0 auto;
+  width: 125px;
+  margin-top: 65px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
 }
 
 h5 {
-    text-align: center;
-    display: block;
-    margin: 0 auto;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
 }
 
-
 .link {
-    color: darkblue;
-  }
-  
-  .link:hover {
-    color: white;
-  }
-  
+  color: darkblue;
+}
+
+.link:hover {
+  color: white;
+}

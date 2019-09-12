@@ -1,10 +1,10 @@
 .login-form-button {
   width: 100%;
-  margin-left: 10px;  
+  margin-left: 10px;
 }
 
 .login-form {
-  max-width:600px;
+  max-width: 600px;
 }
 
 .login-form-forgot {
@@ -18,11 +18,11 @@
   margin: 0 auto;
 }
 
-.form-flex{
+.form-flex {
   padding: 100px;
 }
 
-h5{
+h5 {
   text-align: center;
   display: block;
   margin: 0 auto;
@@ -35,4 +35,3 @@ h5{
 .link:hover {
   color: white;
 }
-
