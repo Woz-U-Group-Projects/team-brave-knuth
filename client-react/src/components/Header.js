@@ -18,11 +18,13 @@ export default class Header extends Component {
     if (key === "logout") {
       this.props.onLogout();
     }
+    if (key === "login") {
+      this.props.onLogin();
+    }
   }
 
   render() {
     let navItems;
-    console.log(this.props.currentUser);
     if (this.props.currentUser) {
       navItems = [
         <BrowserRouter>
@@ -71,7 +73,7 @@ export default class Header extends Component {
       <div className="container">
         <div className="app-title">
           <NavLink href="/hobbylist">
-            <h1> Hobby-App </h1>
+            <h1> The Hobbyist </h1>
           </NavLink>
         </div>
         <Nav mode="horizontal" style={{ lineHeight: "40px" }}>
