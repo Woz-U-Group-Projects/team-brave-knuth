@@ -4,6 +4,7 @@ import '../styles/Login.css';
 import { Link } from 'react-router-dom';
 import { ACCESS_TOKEN } from '../constants';
 import { Button, FormGroup, Label, Input, Col, Row } from 'reactstrap';
+import adventure from '../images/adventure1.jpg';
 
 import { Form, notification } from 'antd';
 
@@ -86,6 +87,9 @@ class Login extends Component {
                 </Row>
                 </FormGroup>
             </Form>
+                
+                    <img src={adventure} alt='boating' className="adventure"  />
+              
             </div>
         </div>
         );

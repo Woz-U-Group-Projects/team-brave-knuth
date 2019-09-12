@@ -1,8 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Staatliches&display=swap');
-
 .login-container {
  
-
 }
 
 .login-form-button {
@@ -22,4 +19,13 @@
 .form-flex{
   padding: 100px;
 }
+.adv{
+  width: 100%;
+}
 
+.adventure {
+  position: center;
+  max-width: 100%;
+  width: 50%;
+  height: auto;
+}
