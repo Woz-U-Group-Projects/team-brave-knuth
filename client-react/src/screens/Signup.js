@@ -9,8 +9,9 @@ import {
     PASSWORD_MIN_LENGTH, PASSWORD_MAX_LENGTH
 } from '../constants';
 
+// import adventure from '..images/adventure1.jpg';
 import { Form, notification } from 'antd';
-import { Button, FormGroup, Label, Input, Container, Row, Col } from 'reactstrap';
+import { Button, FormGroup, Label, Input, Container, Row, Col} from 'reactstrap';
 
 // const FormItem = Form.Item;
 
@@ -84,36 +85,57 @@ class Signup extends Component {
     }
 
     render() {
+        const newImage = require('../images/adventure1.jpg');
+        const divStyle = {
+        width: '100%',
+        height: '450px',
+        opcaity: '0.5',
+        backgroundImage: `url(${newImage})`,
+        backgroundSize: 'cover'   
+        };
         return (
-            <div className="signup-container">
-                <h1 className="page-title">Sign Up</h1>
+            <div className="signup-container" style={divStyle}>
                 <div className="signup-content">
-                    <Container>
+                    <Container className="container">
                     <Form onSubmit={this.handleSubmit} className="signup-form">
+                        <Row form>
+                        <Col xs={6} sm={6} md={3}>
                         <FormGroup validateStatus={this.state.name.validateStatus} help={this.state.name.errorMsg}>
-                            <Label for="name" className="mr-sm-2">Full name</Label>
-                            <Input type="name" name="name" value={this.state.name.value} 
+                            <Label for="name" className="mr-sm-2"></Label>
+                            <Input type="name" placeholder="Full Name" name="name" value={this.state.name.value} 
                             onChange={(event) => this.handleInputChange(event, this.validateName)} />   
                         </FormGroup>
+                        </Col>       
+                        <Col xs={6} sm={6} md={3}>
                         <FormGroup validateStatus={this.state.username.validateStatus} help={this.state.username.errorMsg}>
-                            <Label for="username" className="mr-sm-2">Username</Label>
-                            <Input type="username" name="username" value={this.state.username.value} 
+                            <Label for="username" className="mr-sm-2"></Label>
+                            <Input type="username" placeholder="Username" name="username" value={this.state.username.value} 
                             onChange={(event) => this.handleInputChange(event, this.validateName)} />   
                         </FormGroup>
+                        </Col>
+                        
+                        <Col xs={6} sm={6} md={3}>
                         <FormGroup validateStatus={this.state.email.validateStatus} help={this.state.email.errorMsg}>
-                            <Label for="email" className="mr-sm-2">Email</Label>
-                            <Input type="email" name="email" value={this.state.email.value} 
+                            <Label for="email" className="mr-sm-2"></Label>
+                            <Input type="email" placeholder="Email" name="email" value={this.state.email.value} 
                             onChange={(event) => this.handleInputChange(event, this.validateName)} />   
                         </FormGroup>
+                        </Col>
+                        <Col xs={6} sm={6} md={3}>
                         <FormGroup validateStatus={this.state.password.validateStatus} help={this.state.password.errorMsg}>
-                            <Label for="password" className="mr-sm-2">Password</Label>
-                            <Input type="password" name="password" value={this.state.password.value} 
+                            <Label for="password" className="mr-sm-2"></Label>
+                            <Input type="password" placeholder="Password" name="password" value={this.state.password.value} 
                             onChange={(event) => this.handleInputChange(event, this.validateName)} />   
                         </FormGroup>
+                        </Col>
+                        <Col md={10}>                     
                         <FormGroup>
                             <Button type="primary" className="signup-form-button" disabled={this.isFormInvalid()}>Sign up</Button>
-                            Already registed? <Link to="/login">Login now!</Link>
+                            <br />
+                            <h5>Already registed?</h5> <Link to="/login" className="link"><h5>Login now!</h5></Link>
                         </FormGroup>
+                        </Col>   
+                        </Row>
                     </Form>
                     </Container>
                 </div>

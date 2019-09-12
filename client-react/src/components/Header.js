@@ -31,6 +31,7 @@ export default class Header extends Component {
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <Nav className="ml-auto">
             <NavItem key="/hobbylist">
               <NavLink href="/hobbylist">Hobby List</NavLink>
             </NavItem>
@@ -46,6 +47,7 @@ export default class Header extends Component {
             <NavItem key="/logout">
               <NavLink href="/logout">Logout</NavLink>
             </NavItem>
+            </Nav>
             </div>
           </Navbar>
         </BrowserRouter>
@@ -53,12 +55,14 @@ export default class Header extends Component {
     } else {
       navItems = [
         <BrowserRouter>
+        <Nav className="ml-auto">
           <NavItem key="/login">
             <NavLink href="/login">Login</NavLink>
           </NavItem>
           <NavItem key="/signup">
             <NavLink href="/signup">Signup</NavLink>
           </NavItem>
+          </Nav>
         </BrowserRouter>
       ];
     }

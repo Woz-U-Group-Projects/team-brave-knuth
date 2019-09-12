@@ -1,31 +1,38 @@
-.login-container {
- 
-}
-
 .login-form-button {
   width: 100%;
+  margin-left: 10px;  
 }
 
 .login-form {
-  max-width: 600px;
+  max-width:600px;
 }
+
 .login-form-forgot {
   float: right;
 }
-.login-form-button {
-  width: 100%;
+
+.login-form button {
+  width: 100px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
 }
 
 .form-flex{
   padding: 100px;
 }
-.adv{
-  width: 100%;
+
+h5{
+  text-align: center;
+  display: block;
+  margin: 0 auto;
 }
 
-.adventure {
-  position: center;
-  max-width: 100%;
-  width: 50%;
-  height: auto;
+.link {
+  color: darkblue;
 }
+
+.link:hover {
+  color: white;
+}
+

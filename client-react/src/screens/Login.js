@@ -3,8 +3,8 @@ import { login } from '../util/APIUtils';
 import '../styles/Login.css';
 import { Link } from 'react-router-dom';
 import { ACCESS_TOKEN } from '../constants';
-import { Button, FormGroup, Label, Input, Col, Row } from 'reactstrap';
-import adventure from '../images/adventure1.jpg';
+import { Button, FormGroup, Input, Col, Row } from 'reactstrap';
+// import adventure from '../images/adventure1.jpg';
 
 import { Form, notification } from 'antd';
 
@@ -53,45 +53,51 @@ class Login extends Component {
                 description: 'Your Username or Password is incorrect. Please try again!'
             });                    
         });
+        
     }
 
+    
     render() {
+        const newImage = require('../images/adventure1.jpg');
+        const divStyle = {
+        width: '100%',
+        height: '500px',
+        opcaity: '0.5',
+        backgroundImage: `url(${newImage})`,
+        backgroundSize: 'cover'   
+        };
         return (
-        <div className="login-container">
+        <div className="login" style={divStyle}>
            <div className="form-flex">
             <Form onSubmit={this.handleSubmit} className="login-form">
+                <Row form>
+                <Col md={6}>
                 <FormGroup>
-                <Row>
-                <Col sm={10}>
-                    <Label for="usernameOrEmail" className="mr-sm-2">Username Or Email</Label>
-                    <Input type="username" name="usernameOrEmail" value={this.state.usernameOrEmail.value} 
+                    <Input type="username" className="user-input"  name="usernameOrEmail" placeholder="Username Or Email" value={this.state.usernameOrEmail.value} 
                     onChange={(event) => this.handleInputChange(event)} />
-                </Col>
-                </Row>
                 </FormGroup>
-                <FormGroup>
-                <Row>
-                <Col sm={10}>
-                    <Label for="password" className="mr-sm-2">Password</Label>
-                    <Input type="password" name="password" value={this.state.password.value} 
-                    onChange={(event) => this.handleInputChange(event)} />
                 </Col>
-                </Row>
+                <Col md={6}>
+                <FormGroup> 
+                    <Input type="password" className="password-input" name="password" placeholder="Password" value={this.state.password.value} 
+                    onChange={(event) => this.handleInputChange(event)} />    
                 </FormGroup>
-                <FormGroup>
-                <Row>
-                <Col sm={10}>
+                </Col>
+                <Col md={10}>
+                <FormGroup>  
                     <Button type="primary" htmlType="submit"  className="login-form-button">Login</Button>
-                    Or <Link to="/signup">register now!</Link>
+                    <br />
+                    <h5>Or</h5><Link to="/signup" className="link"><h5>Register now!</h5></Link>
+                </FormGroup> 
                 </Col>
                 </Row>
-                </FormGroup>
             </Form>
-                
-                    <img src={adventure} alt='boating' className="adventure"  />
-              
+        
+            {/* <img src={adventure} alt='boating' className="adventure"  /> */}
+            
             </div>
         </div>
+        
         );
     }
 }
